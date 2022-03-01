@@ -7,9 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class MyClassesPage {
+public class StudentMyClassesPage {
 
-    public MyClassesPage(){
+    public StudentMyClassesPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
