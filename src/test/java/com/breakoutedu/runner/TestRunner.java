@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(  features = "src/test/resources/features" ,
-        glue = "com/cydeo/step_definitions" ,
+        glue = "com/breakoutedu/step_definitions" ,
         publish = true, // generates public link of your local html report
         plugin = {"pretty", "html:target/cucumber.html" ,
                 "rerun:target/rerun.txt" ,  // store the failed scenario into rerun.txt
