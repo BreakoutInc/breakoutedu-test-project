@@ -22,7 +22,7 @@ public class BELoginPage {
     @FindBy (xpath = "//div[@aria-label = 'Sign Up']")
     public WebElement signUpBtn;
 
-    @FindBy (xpath = "//div[@aria-label = 'Log In']")
+    @FindBy (xpath = "//button[contains(text(),'LOG IN')]")
     public WebElement logInBtn;
 
     @FindBy (xpath = "//*[text()=' Educators! Sign Up for a 2-Week FREE Trial ']")
@@ -60,12 +60,15 @@ public class BELoginPage {
     @FindBy (xpath = "//button[text()='LOG IN']")
     public WebElement studentLogInBtn;
 
+    @FindBy(xpath = "//div[@id='errors']//ul")
+    public WebElement errorMsg;
+
 
 
     //*******************METHODS********************
 
     public void goTo(String url){
-        Driver.getDriver().navigate().to( read(url) );
+        Driver.getDriver().navigate().to( read("url") );
     }
 
     public void teacherLogin(String username, String password ) {
