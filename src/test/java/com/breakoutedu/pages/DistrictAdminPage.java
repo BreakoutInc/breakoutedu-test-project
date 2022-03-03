@@ -1,6 +1,7 @@
 package com.breakoutedu.pages;
 
 import com.breakoutedu.utility.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -30,6 +31,9 @@ public class DistrictAdminPage {
     @FindBy(xpath = "//p[contains (text(), 'Students')]/..")
     public WebElement studentsOption;
 
+    @FindBy(xpath = "//label[@for='uploadImage']")
+    public WebElement uploadImageBtn;
+
     @FindBy(xpath = "//p[contains (text(), 'Classes')]/..")
     public WebElement classesOption;
 
@@ -44,6 +48,49 @@ public class DistrictAdminPage {
 
     @FindBy(xpath = "//button[text()='Update Profile']")
     public WebElement updateProfileBtn;
+
+    @FindBy(xpath = "//*[contains(text(), 'View Site')]")
+    public WebElement viewSiteBtn;
+
+    @FindBy(xpath = "//*[contains(text(), 'Switch Schools')]")
+    public WebElement switchSchoolsBtn;
+
+    @FindBy(xpath = "//*[contains(text(), 'Sign out')]")
+    public WebElement signOutBtn;
+
+    @FindBy(xpath = "//input[@placeholder='Search']")
+    public WebElement searchTeacherInput;
+
+    @FindBy(xpath = "//*[contains(@class, 'fa-search')]")
+    public WebElement searchIcon;
+
+    //---------------calendar--------------------------
+    @FindBy(xpath = "//input[@id='filterRecord']")
+    public WebElement selectDateBtn;
+
+    @FindBy(xpath = "//*[@class='prev available']")
+    public WebElement navigateBackInCalendar;
+
+    @FindBy(xpath = "//*[@class='next available']")
+    public WebElement navigateForwardInCalendar;
+
+    @FindBy(xpath = "//button[text()='Cancel']")
+    public WebElement cancelBtnInCalendar;
+
+    @FindBy(xpath = "//button[text()='Apply']")
+    public WebElement applyBtnInCalendar;
+
+    @FindBy(xpath = "//*[contains(@class, 'myClearAll')]")
+    public WebElement clearCalendarSelectionBtn;
+
+    public void clickOnDayInCalendar(String day){
+        Driver.getDriver().findElement(By.xpath("//td[contains (text(), '"+day+"')]")).click();
+    }
+
+    
+    public WebElement SwitchSchoolFromDropdown(String schoolName){
+      return  Driver.getDriver().findElement(By.xpath("//*[contains(text(), '"+schoolName+"')]"));
+    }
 
 
 
