@@ -3,7 +3,6 @@ package com.breakoutedu.step_definitions;
 import com.breakoutedu.pages.BELoginPage;
 import com.breakoutedu.pages.TeacherHomePage;
 import com.breakoutedu.utility.BE_util;
-import com.breakoutedu.utility.Driver;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -12,7 +11,7 @@ import io.cucumber.java.en.When;
 import static com.breakoutedu.utility.BrowserUtil.*;
 import static org.junit.Assert.*;
 
-public class UserLogin {
+public class UserLogin_stepDef {
     BELoginPage loginPage = new BELoginPage();
     TeacherHomePage userHomePage = new TeacherHomePage();
     Faker faker = new Faker();
