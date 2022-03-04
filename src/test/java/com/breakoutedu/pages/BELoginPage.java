@@ -2,6 +2,7 @@ package com.breakoutedu.pages;
 
 import static com.breakoutedu.utility.ConfigReader.*;
 import com.breakoutedu.utility.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -22,7 +23,7 @@ public class BELoginPage {
     @FindBy (xpath = "//div[@aria-label = 'Sign Up']")
     public WebElement signUpBtn;
 
-    @FindBy (xpath = "//button[contains(text(),'LOG IN')]")
+    @FindBy (xpath = "//div[contains(text(),'Log In')]")
     public WebElement logInBtn;
 
     @FindBy (xpath = "//*[text()=' Educators! Sign Up for a 2-Week FREE Trial ']")
@@ -46,6 +47,9 @@ public class BELoginPage {
     @FindBy(xpath = "//button[@type='submit'][text()='SIGN IN']")
     public WebElement teachSignInBtn;
 
+    @FindBy(xpath = "//li[contains (text(), 'Invalid credentials')]")
+    public WebElement teacherErrorMsg;
+
 
      //----------student Log In --------------
     @FindBy (xpath = "//a[text()=' Log In With Breakout EDU']")
@@ -66,30 +70,6 @@ public class BELoginPage {
 
 
     //*******************METHODS********************
-
-    public void goTo(String url){
-        Driver.getDriver().navigate().to( read("url") );
-    }
-
-    public void teacherLogin(String username, String password ) {
-        this.logInBtn.click();
-        this.teacherBtn.click();
-        this.teacherEmailInput.sendKeys(username);
-        this.teacherPwdInput.sendKeys(password);
-        this.teachSignInBtn.click();
-
-    }
-
-    public void studentLoginWthBE(String username, String password ) {
-        this.logInBtn.click();
-        this.studentBtn.click();
-        this.logInWithBE_Btn.click();
-        this.studentUsernameInput.sendKeys(username);
-        this.studentPswInput.sendKeys(password);
-        this.studentLogInBtn.click();
-
-    }
-
 
 
     }

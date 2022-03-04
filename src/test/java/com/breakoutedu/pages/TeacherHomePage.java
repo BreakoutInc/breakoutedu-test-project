@@ -11,7 +11,7 @@ public class TeacherHomePage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath = "//*[@id='sidenav']/div[2]/a")
+    @FindBy(xpath = "//a[@href='/profile']/div")
     public WebElement myAccountIcon;
 
     @FindBy(xpath = "//span[text()=' My Classes']")
