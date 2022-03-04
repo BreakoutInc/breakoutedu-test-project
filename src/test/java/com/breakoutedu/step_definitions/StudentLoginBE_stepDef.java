@@ -14,7 +14,7 @@ import io.cucumber.java.en.When;
 import static org.junit.Assert.*;
 
 
-public class StudentLoginBE {
+public class StudentLoginBE_stepDef {
     BELoginPage loginPage = new BELoginPage();
     Faker faker = new Faker();
     BE_util beUtil = new BE_util();

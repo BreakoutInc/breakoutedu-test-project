@@ -27,8 +27,6 @@ public StudentHomePage(){
   @FindBy(xpath = "//a[text()='Notifications']")
   public WebElement notificationsModule;
 
-  @FindBy(xpath = "//a[@class='btn btn-secondary pull-right']")
-  public WebElement createGameBtn;
 
 
 }
