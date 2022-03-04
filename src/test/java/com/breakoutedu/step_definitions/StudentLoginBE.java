@@ -3,6 +3,8 @@ package com.breakoutedu.step_definitions;
 import com.breakoutedu.pages.BELoginPage;
 import static com.breakoutedu.utility.ConfigReader.*;
 import static com.breakoutedu.utility.BrowserUtil.*;
+
+import com.breakoutedu.utility.BE_util;
 import com.breakoutedu.utility.Driver;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
@@ -15,11 +17,12 @@ import static org.junit.Assert.*;
 public class StudentLoginBE {
     BELoginPage loginPage = new BELoginPage();
     Faker faker = new Faker();
+    BE_util beUtil = new BE_util();
 
 
     @Given("student is on the Student Login Page")
     public void studentIsOnTheStudentLoginPage() {
-        loginPage.goTo(read("url"));
+        beUtil.goTo("student");
     }
 
     @When("student clicks on Log In with Breakout EDU")
@@ -35,7 +38,7 @@ public class StudentLoginBE {
 
     @And("clicks on Log In")
     public void clicksOnLogIn() {
-        loginPage.logInBtn.click();
+        loginPage.studentLogInBtn.click();
     }
 
     @Then("verifies Student Home Page in displayed")
