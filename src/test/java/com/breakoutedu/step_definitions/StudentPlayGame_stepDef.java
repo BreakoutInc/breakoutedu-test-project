@@ -5,11 +5,13 @@ import static com.breakoutedu.utility.ConfigReader.*;
 import com.breakoutedu.pages.StudentHomePage;
 import com.breakoutedu.pages.StudentMyGamesPage;
 import com.breakoutedu.utility.BE_util;
+import static com.breakoutedu.utility.BrowserUtil.*;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class StudentPlayGame_stepDef {
     BELoginPage loginPage = new BELoginPage();
@@ -18,31 +20,38 @@ public class StudentPlayGame_stepDef {
     StudentHomePage homePage = new StudentHomePage();
     StudentMyGamesPage gamesPage = new StudentMyGamesPage();
 
+
+    public String gameTitle = faker.animal().name();
+
     @Given("student is on the Home Page")
     public void studentIsOnTheHomePage() {
+        beUtil.goTo("student");
         beUtil.studentLoginWthBE(read("student1_user"),read("studentPassword"));
     }
 
     @When("student clicks My Games module and clicks Create a Game")
     public void studentClicksCreateAGame() {
         homePage.myGamesModule.click();
-        gamesPage.createGameBtn.click();
+        gamesPage.createNewGameBtn.click();
     }
 
     @And("selects class and clicks create game title")
     public void selectsClassAndClicksCreateGameTitle() {
-        gamesPage.selectLastClassFromDropdown().click();
+     //  gamesPage.selectLastClassFromDropdown().click();
+        gamesPage.listOfClasses.get(0).click();
+        gamesPage.createGameBtn.click();
 
     }
 
     @And("selects {string}")
     public void selects(String gameType) {
-        gamesPage.selectGameCategory(gameType).click();
+     //   gamesPage.selectGameCategory(gameType).click();
     }
 
     @And("provides valid game title and clicks next")
     public void providesValidGameTitleAndClicksNext() {
-        gamesPage.titleInput.sendKeys(faker.animal().name());
+        gamesPage.titleInput.sendKeys(gameTitle);
+        gamesPage.nextBtn.click();
     }
 
     @And("inputs Lock Story text")
@@ -73,6 +82,7 @@ public class StudentPlayGame_stepDef {
     @Then("verifies the game has been created")
     public void verifiesTheGameHasBeenCreated() {
          homePage.myGamesModule.click();
+        Assert.assertTrue(gamesPage.gameIsPresentInCreatedGamesColumn(gameTitle));
 
     }
 }

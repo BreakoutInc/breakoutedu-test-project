@@ -15,13 +15,20 @@ public class StudentMyGamesPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath = "//a[@class='btn btn-secondary pull-right']")
+    @FindBy(xpath = "//*[text()='Create New Game']")
+    public WebElement createNewGameBtn;
+
+    @FindBy(xpath = "//*[text()='Create Game']")
     public WebElement createGameBtn;
+
+    //after selecting lock type
+    @FindBy(xpath = "//button[text()='NEXT']")
+    public WebElement nextBtn;
 
     @FindBy(xpath = "//div[@class='lock-of-day-banner game-container']")
     public WebElement LOTDgame;
 
-    @FindBy(xpath = "//div[contains (@class, 'radiobutton')]//label")
+    @FindBy(xpath = "//div[contains (@class, 'radiobutton')]//input/..")
     public List<WebElement> listOfClasses;
 
     @FindBy(xpath = "//*[contains (text(), 'Single Lock')]/..//li")
@@ -39,7 +46,7 @@ public class StudentMyGamesPage {
     @FindBy(xpath = "//div[@class='lock-setup-story']//div[contains (@aria-label, 'Text Editor')]")
     public WebElement lockStoryInput;
 
-    @FindBy(xpath = "//*[@id='locksetupstory']/div[2]/ul/li[2]/a")
+    @FindBy(xpath = "//p[text()='Select a content-type below to create a clue for this lock.']/..//li[2]")
     public WebElement textLockClueBtn;
 
     @FindBy(xpath = "//*[contains (text(), 'Enter the text')]/..//div[@aria-label='Rich Text Editor, main']")
@@ -72,6 +79,10 @@ public class StudentMyGamesPage {
         for (int i =0; i<=capitalLetterCombination.length()-1; i++){
             Driver.getDriver().findElement(By.xpath("//a[@class='alphabets'][contains (text(), '"+capitalLetterCombination.charAt(i)+"')]")).click();
         }
+    }
+
+    public boolean gameIsPresentInCreatedGamesColumn(String gameName){
+        return Driver.getDriver().findElement(By.xpath("//p[text()='Created Games']/..//p[text()='"+gameName+"']")).isDisplayed();
     }
 }
 

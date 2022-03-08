@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 public class Driver {
 
@@ -27,6 +28,10 @@ public class Driver {
                     WebDriverManager.firefoxdriver().setup();
                     obj = new FirefoxDriver();
                     break;
+                case "safari":
+                    WebDriverManager.safaridriver().setup();
+                    obj = new SafariDriver();
+                    break;
                 // other browsers omitted
                 default:
                     obj = null ;
@@ -47,7 +52,7 @@ public class Driver {
     public static void closeBrowser(){
         if(obj != null ){
             obj.quit();
-            // so when ask for it again , it gives us not quited fresh driver
+            // when ask for it again , it gives us not quited fresh driver
             obj = null ;
         }
 

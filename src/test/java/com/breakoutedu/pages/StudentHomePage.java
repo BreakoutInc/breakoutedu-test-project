@@ -21,7 +21,7 @@ public StudentHomePage(){
   @FindBy(xpath = "//a[text()='My Classes']")
   public WebElement myClassesModule;
 
-  @FindBy(xpath = "//a[text()='My Games']")
+  @FindBy(xpath = "//span[contains (text(), 'My Games')]")
   public WebElement myGamesModule;
 
   @FindBy(xpath = "//a[text()='Notifications']")

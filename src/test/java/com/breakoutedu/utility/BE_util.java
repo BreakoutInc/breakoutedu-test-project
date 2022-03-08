@@ -21,9 +21,10 @@ public class BE_util {
     }
 
     public void studentLoginWthBE(String username, String password ) {
-        beLoginPage.logInBtn.click();
-        beLoginPage.studentBtn.click();
+       // beLoginPage.logInBtn.click();
+       // beLoginPage.studentBtn.click();
         beLoginPage.logInWithBE_Btn.click();
+        BrowserUtil.waitForClickability(beLoginPage.studentUsernameInput,3);
         beLoginPage.studentUsernameInput.sendKeys(username);
         beLoginPage.studentPswInput.sendKeys(password);
         beLoginPage.studentLogInBtn.click();

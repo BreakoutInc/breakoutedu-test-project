@@ -23,7 +23,7 @@ public class BELoginPage {
     @FindBy (xpath = "//div[@aria-label = 'Sign Up']")
     public WebElement signUpBtn;
 
-    @FindBy (xpath = "//div[contains(text(),'Log In')]")
+    @FindBy (xpath = "//a[contains(text(),'Log In')]")
     public WebElement logInBtn;
 
     @FindBy (xpath = "//*[text()=' Educators! Sign Up for a 2-Week FREE Trial ']")
