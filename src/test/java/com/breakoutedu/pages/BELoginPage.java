@@ -1,6 +1,8 @@
 package com.breakoutedu.pages;
 
 import static com.breakoutedu.utility.ConfigReader.*;
+
+import com.breakoutedu.utility.BrowserUtil;
 import com.breakoutedu.utility.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -67,9 +69,34 @@ public class BELoginPage {
     @FindBy(xpath = "//div[@id='errors']//ul")
     public WebElement errorMsg;
 
+    @FindBy(xpath = "//a[@href='/profile']/div")
+    public WebElement myAccountIcon;
 
 
     //*******************METHODS********************
+    public void teacherLogin(String username, String password ) {
+        this.logInBtn.click();
+        this.teacherBtn.click();
+        this.teacherEmailInput.sendKeys(username);
+        this.teacherPwdInput.sendKeys(password);
+        this.teachSignInBtn.click();
 
+    }
+
+    public void studentLoginWthBE(String username, String password ) {
+        // beLoginPage.logInBtn.click();
+        // beLoginPage.studentBtn.click();
+        this.logInWithBE_Btn.click();
+        BrowserUtil.waitForClickability(this.studentUsernameInput,3);
+        this.studentUsernameInput.sendKeys(username);
+        this.studentPswInput.sendKeys(password);
+        this.studentLogInBtn.click();
+
+    }
+
+    public void userLogOut(){
+        this.myAccountIcon.click();
+        Driver.getDriver().findElement(By.xpath("//*[@id='accountBox']/div[3]/div/button")).click();
+    }
 
     }

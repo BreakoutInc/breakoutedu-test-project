@@ -2,7 +2,6 @@ package com.breakoutedu.step_definitions;
 
 import com.breakoutedu.pages.BELoginPage;
 import com.breakoutedu.pages.TeacherHomePage;
-import com.breakoutedu.utility.BE_util;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -15,12 +14,11 @@ public class UserLogin_stepDef {
     BELoginPage loginPage = new BELoginPage();
     TeacherHomePage userHomePage = new TeacherHomePage();
     Faker faker = new Faker();
-    BE_util beUtil = new BE_util();
 
 
     @Given("user is on Login Page")
     public void userIsOnLoginPage() {
-        beUtil.goTo("user");
+        goTo("user");
         waitForPageToLoad(4);
 
     }
@@ -40,7 +38,7 @@ public class UserLogin_stepDef {
     public void verifiesLoggedInSuccessfully() {
         waitForPageToLoad(4);
         assertTrue(userHomePage.myAccountIcon.isDisplayed());
-        beUtil.userLogOut();
+        loginPage.userLogOut();
     }
 
     @When("user provides invalid email and password")
@@ -53,6 +51,6 @@ public class UserLogin_stepDef {
     @Then("verifies Invalid credentials window is displayed")
     public void verifiesInvalidCredentialsWindowIsDisplayed() {
         assertTrue(loginPage.teacherErrorMsg.isDisplayed());
-        beUtil.userLogOut();
+        loginPage.userLogOut();
     }
 }
