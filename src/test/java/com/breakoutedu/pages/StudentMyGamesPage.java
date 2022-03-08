@@ -1,5 +1,6 @@
 package com.breakoutedu.pages;
 
+import com.breakoutedu.utility.BrowserUtil;
 import com.breakoutedu.utility.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
@@ -46,7 +47,7 @@ public class StudentMyGamesPage {
     @FindBy(xpath = "//div[@class='lock-setup-story']//div[contains (@aria-label, 'Text Editor')]")
     public WebElement lockStoryInput;
 
-    @FindBy(xpath = "//p[text()='Select a content-type below to create a clue for this lock.']/..//li[2]")
+    @FindBy(xpath = "//h2[text()='Text']")
     public WebElement textLockClueBtn;
 
     @FindBy(xpath = "//*[contains (text(), 'Enter the text')]/..//div[@aria-label='Rich Text Editor, main']")
@@ -54,6 +55,44 @@ public class StudentMyGamesPage {
 
     @FindBy(xpath = "//button[contains (text(), 'SAVE AS DRAFT')]")
     public WebElement saveAsDraftBtn;
+
+    @FindBy(xpath = "//*[@id='edit-game-tabs']/li[2]/a/img")
+    public WebElement addNewLock;
+
+    @FindBy(xpath = "//a[@href='#selectLockText']")
+    public WebElement textLockTypeForMultiLock;
+
+    @FindBy(xpath = "//a[@href='#selectLockNumber']")
+    public WebElement numberLockTypeForMultilock;
+
+    @FindBy(xpath = "//a[@href='#selectLockDirection']")
+    public WebElement directionalLockTypeForMultilock;
+
+    @FindBy(xpath = "//a[@href='#selectLockShape']")
+    public WebElement shapeLockTypeForMultilock;
+
+    @FindBy(xpath = "//a[@href='#selectLockColor']")
+    public WebElement colorLockTypeForMultilock;
+
+    public WebElement selectLockTypeForMultilockGame(String lockType){
+        switch (lockType){
+            case "text":
+                return this.textLockTypeForMultiLock;
+            case "number":
+                return this.numberLockTypeForMultilock;
+            case "directional":
+                return this.directionalLockTypeForMultilock;
+            case "shape":
+                return this.shapeLockTypeForMultilock;
+            case "color":
+                return this.colorLockTypeForMultilock;
+            default:
+                System.out.println("Wrong lock clue type provided, make sure it's all lower case");
+                return null;
+        }
+    }
+
+
 
     public WebElement selectLastClassFromDropdown(){
         return this.listOfClasses.get(this.listOfClasses.size()-1);
@@ -76,14 +115,19 @@ public class StudentMyGamesPage {
     }
 
     public void selectLetterForLockClue(String capitalLetterCombination){
-        for (int i =0; i<=capitalLetterCombination.length()-1; i++){
-            Driver.getDriver().findElement(By.xpath("//a[@class='alphabets'][contains (text(), '"+capitalLetterCombination.charAt(i)+"')]")).click();
+        for (int i =0; i<capitalLetterCombination.length(); i++){
+            BrowserUtil.clickWithJS(Driver.getDriver().findElement(By.xpath("//a[@class='alphabets'][contains (text(), '"+capitalLetterCombination.charAt(i)+"')]")));
         }
     }
 
     public boolean gameIsPresentInCreatedGamesColumn(String gameName){
         return Driver.getDriver().findElement(By.xpath("//p[text()='Created Games']/..//p[text()='"+gameName+"']")).isDisplayed();
     }
+
+    public void createLockForMultilockGame(){
+        this.selectLockTypeForMultilockGame("color").click();
+    }
+
 }
 
 

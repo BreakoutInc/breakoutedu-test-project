@@ -1,6 +1,8 @@
 package com.breakoutedu.utility;
 
 import org.junit.Assert;
+
+import static com.breakoutedu.utility.ConfigReader.read;
 import static org.junit.Assert.assertTrue;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -14,11 +16,21 @@ import java.util.function.Function;
 
 public class BrowserUtil {
 
+    public static void goTo(String userType){
+        if(userType.equals("student")) {
+            Driver.getDriver().navigate().to(read("stud_url"));
+        }else if(userType.equals("user")){
+            Driver.getDriver().navigate().to(read("user_url"));
+        }else{
+            System.out.println("Invalid user type provided");
+        }
+    }
+
     //wait for given amount of seconds
     public static void waitFor(int seconds){
 
         try {
-            Thread.sleep(seconds * 1000);
+            Thread.sleep(seconds * 1000L);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -87,11 +99,7 @@ public class BrowserUtil {
 
     // waits for a page to load
     public static void waitForPageToLoad(long timeOutInSeconds) {
-        ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver driver) {
-                return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
-            }
-        };
+        ExpectedCondition<Boolean> expectation = driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
         try {
             System.out.println("Waiting for page to load...");
             WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeOutInSeconds);
@@ -130,7 +138,7 @@ public class BrowserUtil {
 
 
     //waits until elm isn't stale
-    public void waitForStaleElement(WebElement element) {
+    public static void waitForStaleElement(WebElement element) {
         int y = 0;
         while (y <= 15) {
             if(y==1)
@@ -157,7 +165,7 @@ public class BrowserUtil {
 
 
     //returns random value from a dropdown list
-    public WebElement selectRandomTextFromDropdown(Select select) {
+    public static WebElement selectRandomTextFromDropdown(Select select) {
         Random random = new Random();
         List<WebElement> weblist = select.getOptions();
         int optionIndex = 1 + random.nextInt(weblist.size() - 1);
@@ -167,26 +175,26 @@ public class BrowserUtil {
 
 
     //click elm using Javascript
-    public void clickWithJS(WebElement element) {
+    public static void clickWithJS(WebElement element) {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", element);
     }
 
 
     //scroll down to an elm using JS
-    public void scrollToElement(WebElement element) {
+    public static void scrollToElement(WebElement element) {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
 
     //performs double click
-    public void doubleClick(WebElement element) {
+    public static void doubleClick(WebElement element) {
         new Actions(Driver.getDriver()).doubleClick(element).build().perform();
     }
 
 
     //Changes the HTML attribute of a Web Element to the given value using JavaScript
-    public void setAttribute(WebElement element, String attributeName, String attributeValue) {
+    public static void setAttribute(WebElement element, String attributeName, String attributeValue) {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);", element, attributeName, attributeValue);
     }
 
