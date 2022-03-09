@@ -20,7 +20,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class StudentPlayGame_stepDef {
     BELoginPage loginPage = new BELoginPage();
     Faker faker = new Faker();
-    BE_util beUtil = new BE_util();
     StudentHomePage homePage = new StudentHomePage();
     StudentMyGamesPage gamesPage = new StudentMyGamesPage();
 
@@ -60,7 +59,7 @@ public class StudentPlayGame_stepDef {
 
     @And("inputs Lock Story text")
     public void inputsLockStoryText() {
-        gamesPage.lockStoryInput.sendKeys(faker.chuckNorris().fact());
+        gamesPage.lockStoryInputSingleLock.sendKeys(faker.chuckNorris().fact());
     }
 
     @And("selects Text lock clue")
@@ -103,6 +102,7 @@ public class StudentPlayGame_stepDef {
     @And("selects new lock icon")
     public void selectsNewLockIcon() {
         gamesPage.addNewLock.click();
+
     }
 
 
