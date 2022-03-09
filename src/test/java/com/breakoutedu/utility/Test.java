@@ -37,7 +37,7 @@ public class Test {
         String title =faker.company().buzzword();
         gamesPage.titleInput.sendKeys(title);
         gamesPage.nextBtn.click();
-        gamesPage.lockStoryInput.sendKeys(faker.chuckNorris().fact());
+        gamesPage.lockStoryInputSingleLock.sendKeys(faker.chuckNorris().fact());
 
         scrollToElement(gamesPage.textLockClueBtn);
         //waitFor(1);
