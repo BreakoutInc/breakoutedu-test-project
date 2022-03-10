@@ -6,7 +6,7 @@ Feature: Student able to play game successfully
     And selects class and clicks create game title
 
 
-  Scenario: Student plays Single lock game successfully
+  Scenario: Student plays single-lock game successfully
     And selects game type
     And provides valid game title and clicks next
     And inputs Lock Story text
@@ -17,18 +17,20 @@ Feature: Student able to play game successfully
     Then verifies the game has been created
 
 
-    @test
-  Scenario Outline: Student plays Single lock game successfully
+
+  Scenario Outline: Student plays multi-lock game successfully
     And selects "<game type>"
     And provides valid game title and clicks next
     And inputs Lock Story text
-    And selects new lock icon
-#    And creates lock
-#    And clicks Add Another Lock button
-#    And creates lock
-#    And clicks Save as draft
-#    Then verifies the game has been created
+    And creates color lock
+    And clicks Add Another Lock button
+    And creates directional lock
+    And clicks Save as draft
+    Then verifies the game has been created
     Examples:
       |game type|
       |Non-sequential game|
       |Sequential game|
+
+
+

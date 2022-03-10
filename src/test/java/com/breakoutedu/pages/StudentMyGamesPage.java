@@ -10,7 +10,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
-import java.util.Locale;
 
 
 public class StudentMyGamesPage {
@@ -90,6 +89,23 @@ public class StudentMyGamesPage {
     @FindBy(xpath = "//textarea[contains (@placeholder, 'embed video code')]")
     public WebElement embedCodeInput;
 
+    @FindBy(xpath = "//*[@id='myTabContent']/div[2]/div[3]/button[1]")
+    public WebElement cancelBtn;
+
+    @FindBy(xpath = "//*[@id='myTabContent']/div[6]/div[3]/button[2]") //??
+    public WebElement deleteLockBtn;
+
+    @FindBy(xpath = "//*[@id='myTabContent']/div[6]/div[3]/div/button[1]") //??
+    public WebElement saveAsDraftBtnMultiLock;
+
+    @FindBy(xpath = "//*[@id='myTabContent']/div[6]/div[3]/div/button[2]")  //??
+    public WebElement addAnotherLockBtn;
+
+    @FindBy(xpath = "//*[@id='myTabContent']/div[6]/div[3]/div/button[3]") //??
+    public WebElement saveAndExitBtn;
+
+    @FindBy(xpath = "//div[@id='lightbox'][@aria-hidden='true']") //??
+    public WebElement alertForWrongTitle;
 
 
     //////////////METHODS//////////////////////////////
@@ -111,7 +127,6 @@ public class StudentMyGamesPage {
                 return null;
         }
     }
-
 
     public WebElement selectLastClassFromDropdown(){
         return this.listOfClasses.get(this.listOfClasses.size()-1);
@@ -225,17 +240,11 @@ public class StudentMyGamesPage {
         }
     }
 
-
-
-
-
     public boolean gameIsPresentInCreatedGamesColumn(String gameName){
         return getDriver().findElement(By.xpath("//p[text()='Created Games']/..//p[text()='"+gameName+"']")).isDisplayed();
     }
 
-
-
-    public void createLockForMultilockGame(String lockType, String lockClue){
+    public void createLockForMultilockGame(String lockType, String lockClue, String lockCombination) {
         //----lines below are for starting game
 //        this.selectLockTypeForMultilockGame(lockType).click();
 //        this.lockStoryInputMultiL.click();   //????? maybe don't need
@@ -248,24 +257,47 @@ public class StudentMyGamesPage {
         this.lockStoryInputMultiL.click();
         this.lockStoryInputMultiL.sendKeys(faker.hitchhikersGuideToTheGalaxy().quote());
         this.selectLockClue(lockClue);
-        if(lockClue.equals("Image")){
-            this.uploadFile.sendKeys("/Users/yuliiarublenko/Desktop/breakouteduuuu.jpeg");
-        }else if(lockClue.equals("Text")){
-            this.textLockInput.click();
-            textLockInput.sendKeys(faker.friends().quote());
-        }else if(lockClue.equals("Video Embed Code")){
-            ////CONTINUE HERE
+
+        switch (lockClue) {
+            case "Image":
+                this.uploadFile.sendKeys("/Users/yuliiarublenko/Desktop/breakouteduuuu.jpeg");
+                break;
+            case "Text":
+                this.textLockInput.click();
+                textLockInput.sendKeys(faker.friends().quote());
+                break;
+            case "Video Embed Code":
+                this.embedCodeInput.sendKeys("<iframe width='560' height='315' src='https://www.youtube.com/embed/1QTc2nDP49A' title='YouTube video player' " +
+                        "frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>");
+                break;
+            default:
+                System.out.println("Wrong lock clue provided");
+                break;
         }
 
+        switch (lockType) {
+            case "text":
+                this.selectLetterForLockClue(lockCombination);
+                break;
+            case "number":
+                this.selectNumbersForLockClue(lockCombination);
+                break;
+            case "directional":
+                this.selectDirectionForLockClue(lockCombination);
+                break;
+            case "shape":
+                this.selectShapeForLockClue(lockCombination);
+                break;
+            case "color":
+                this.selectColorForLockClue(lockCombination);
+                break;
+            default:
+                System.out.println("Wrong lock clue type provided, make sure it's all lower case");
+                break;
 
-        this.textLockInput.sendKeys(faker.leagueOfLegends().quote());
 
+        }
 
-
-
-
-    }
-
-}
+    }}
 
 
