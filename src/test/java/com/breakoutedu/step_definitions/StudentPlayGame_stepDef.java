@@ -17,6 +17,10 @@ import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class StudentPlayGame_stepDef {
     BELoginPage loginPage = new BELoginPage();
     Faker faker = new Faker();
@@ -29,13 +33,13 @@ public class StudentPlayGame_stepDef {
     @Given("student is on the Home Page")
     public void studentIsOnTheHomePage() {
         goTo("student");
-        loginPage.studentLoginWthBE(read("student1_user"),read("studentPassword"));
+        loginPage.studentLoginWthBE(read("student1_user"), read("studentPassword"));
     }
 
     @When("student clicks My Games module and clicks Create a Game")
     public void studentClicksCreateAGame() {
         homePage.myGamesModule.click();
-        WebDriverWait wait=new WebDriverWait(Driver.getDriver(), 10);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
         wait.until(ExpectedConditions.elementToBeClickable(gamesPage.createNewGameBtn)).click();
     }
 
@@ -87,7 +91,7 @@ public class StudentPlayGame_stepDef {
 
     @Then("verifies the game has been created")
     public void verifiesTheGameHasBeenCreated() {
-         homePage.myGamesModule.click();
+        homePage.myGamesModule.click();
         waitForPageToLoad(5);
         Assert.assertTrue(gamesPage.gameIsPresentInCreatedGamesColumn(gameTitle));
 
@@ -99,11 +103,28 @@ public class StudentPlayGame_stepDef {
         gamesPage.selectGameCategory(gameType).click();
     }
 
-    @And("selects new lock icon")
-    public void selectsNewLockIcon() {
-        gamesPage.addNewLock.click();
 
+    @And("creates color lock")
+    public void createsLock() {
+        gamesPage.createLockForMultilockGame("color", "text", "RXQB");
+    }
+
+    @And("clicks Add Another Lock button")
+    public void clicksAddAnotherLockButton() {
+        gamesPage.addAnotherLockBtn.click();
+    }
+
+    @And("creates directional lock")
+    public void createsSecondLock() {
+        gamesPage.createLockForMultilockGame("directional", "text", "UUDR");
+    }
+
+    @And("clicks Add New Lock button")
+    public void clicksAddNewLockButton() {
+        gamesPage.addNewLock.click();
     }
 
 
 }
+
+
