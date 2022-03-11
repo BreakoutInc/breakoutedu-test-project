@@ -48,7 +48,7 @@ Feature: Student able to select various elements while creating game
     Then verifies The title must be at least 3 characters alert is displayed
 
 
-     And selects <game type>
+     And selects "<game type>"
      And provides existing game title and clicks next
      Then verifies Title already has been taken alert is displayed
      Examples:

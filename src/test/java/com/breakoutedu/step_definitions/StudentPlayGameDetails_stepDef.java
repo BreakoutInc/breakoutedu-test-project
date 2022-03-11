@@ -6,6 +6,9 @@ import com.breakoutedu.pages.StudentMyGamesPage;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
+
+import static com.breakoutedu.utility.BrowserUtil.waitForPageToLoad;
 import static org.junit.Assert.*;
 import java.util.List;
 import static com.breakoutedu.utility.BrowserUtil.waitFor;
@@ -34,5 +37,18 @@ public class StudentPlayGameDetails_stepDef {
     @Then("verifies The title must be at least 3 characters alert is displayed")
     public void verifiesAlertIsDisplayed() {
         assertTrue(gamesPage.alertForWrongTitle.isDisplayed());
+    }
+
+    @And("provides existing game title and clicks next")
+    public void providesExistingGameTitleAndClicksNext() {
+        homePage.myGamesModule.click();
+        waitForPageToLoad(5);
+        Assert.assertTrue(gamesPage.gameIsPresentInCreatedGamesColumn(""));
+        gamesPage.titleInput.sendKeys("test");
+    }
+
+    @Then("verifies Title already has been taken alert is displayed")
+    public void verifiesTitleAlreadyHasBeenTakenAlertIsDisplayed() {
+
     }
 }

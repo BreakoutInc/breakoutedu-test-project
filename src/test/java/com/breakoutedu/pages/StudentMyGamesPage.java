@@ -241,7 +241,7 @@ public class StudentMyGamesPage {
     }
 
     public boolean gameIsPresentInCreatedGamesColumn(String gameName){
-        return getDriver().findElement(By.xpath("//p[text()='Created Games']/..//p[text()='"+gameName+"']")).isDisplayed();
+        return getDriver().findElement(By.xpath("//p[text()='Created']/..//p[text()='"+gameName+"']")).isDisplayed();
     }
 
     public void createLockForMultilockGame(String lockType, String lockClue, String lockCombination) {
