@@ -1,4 +1,4 @@
-@smoke
+@smoke @done
 Feature: Student Login with Breakout account
 
   Background:

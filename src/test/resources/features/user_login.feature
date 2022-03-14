@@ -1,3 +1,4 @@
+@regression @done
 Feature: Teacher login
 
    @smoke

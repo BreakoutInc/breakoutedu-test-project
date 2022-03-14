@@ -59,13 +59,13 @@ public class StudentMyGamesPage {
     @FindBy(xpath = "NAAAAAAAAAAAAA")
     public WebElement additionalLockStoryInput;
 
-    @FindBy(xpath = "NAAAAAAAAAAA")
+    @FindBy(xpath = "//*[@id='edit_info']/div[2]/div[2]/div[2]/div")
     public WebElement lockStoryInputMultiL;
 
     @FindBy(xpath = "//button[contains (text(), 'SAVE AS DRAFT')]")
     public WebElement saveAsDraftBtn;
 
-    @FindBy(xpath = "//*[@id='edit-game-tabs']/li[2]/a/img")
+    @FindBy(xpath = "//*[@id='edit-game-tabs']/li[2]/a")
     public WebElement addNewLock;
 
     @FindBy(xpath = "//a[@href='#selectLockText']")
@@ -107,6 +107,20 @@ public class StudentMyGamesPage {
     @FindBy(xpath = "//div[@id='lightbox'][@aria-hidden='true']") //??
     public WebElement alertForWrongTitle;
 
+    @FindBy(xpath = "//*[text()='Created']/..//img[contains (@src, 'ellipsis-purple-01')]")
+    public List<WebElement> threeDotsIcon_Created;
+
+    @FindBy(xpath = "//span[text()='Edit']")
+    public WebElement editGameOption;
+
+    @FindBy(xpath = "//span[text()='Delete']")
+    public WebElement deleteGameOption;
+
+    @FindBy(xpath = "//button[text()='YES']")
+    public WebElement yesDeleteGame;
+
+    @FindBy(xpath = "//button[text()='NO']")
+    public WebElement noDeleteGame;
 
     //////////////METHODS//////////////////////////////
 
@@ -252,8 +266,8 @@ public class StudentMyGamesPage {
 //        this.textLockClueBtn.click();
 //        this.textLockInput.sendKeys(faker.aquaTeenHungerForce().character());
         scrollToElement(this.addNewLock);
-        addNewLock.click();
-        this.selectLockTypeForMultilockGame(lockType).click();
+        clickWithJS(addNewLock);
+        clickWithJS(this.selectLockTypeForMultilockGame(lockType));
         this.lockStoryInputMultiL.click();
         this.lockStoryInputMultiL.sendKeys(faker.hitchhikersGuideToTheGalaxy().quote());
         this.selectLockClue(lockClue);

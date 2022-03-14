@@ -7,11 +7,9 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-
-import static com.breakoutedu.utility.BrowserUtil.waitForPageToLoad;
+import static com.breakoutedu.utility.BrowserUtil.*;
 import static org.junit.Assert.*;
-import java.util.List;
-import static com.breakoutedu.utility.BrowserUtil.waitFor;
+
 
 public class StudentPlayGameDetails_stepDef {
     BELoginPage loginPage = new BELoginPage();
@@ -19,13 +17,13 @@ public class StudentPlayGameDetails_stepDef {
     StudentHomePage homePage = new StudentHomePage();
     StudentMyGamesPage gamesPage = new StudentMyGamesPage();
 
+
     @Then("verifies all {string} can be selected")
-    public void verifiesAllCanBeSelected(List<String> lockTypes) {
-        for (String eachType : lockTypes) {
-            gamesPage.selectLockTypeForMultilockGame(eachType).click();
+    public void verifiesAllCanBeSelected(String lockTypes) {
+        waitForPageToLoad(5);
+           clickWithJS(gamesPage.selectLockTypeForMultilockGame(lockTypes));
             waitFor(1);
-            assertTrue(gamesPage.selectLockTypeForMultilockGame(eachType).getAttribute("class").equalsIgnoreCase("select-lock active"));
-        }
+            assertTrue(gamesPage.selectLockTypeForMultilockGame(lockTypes).getAttribute("class").equalsIgnoreCase("select-lock active"));
     }
 
 
@@ -50,5 +48,10 @@ public class StudentPlayGameDetails_stepDef {
     @Then("verifies Title already has been taken alert is displayed")
     public void verifiesTitleAlreadyHasBeenTakenAlertIsDisplayed() {
 
+    }
+
+    @And("selects Non-Sequential game type")
+    public void selectsNonSequentialGameType() {
+        gamesPage.selectGameCategory("Non-sequential game").click();
     }
 }
