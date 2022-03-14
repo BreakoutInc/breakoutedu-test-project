@@ -122,6 +122,15 @@ public class StudentMyGamesPage {
     @FindBy(xpath = "//button[text()='NO']")
     public WebElement noDeleteGame;
 
+    @FindBy(xpath = "//img[@id='blah']")
+    public WebElement uploadImgAssert;
+
+    @FindBy(xpath = "//*[contains (text(),'Unsupported image type')]")
+    public WebElement unsupportedMediaTypeErrorMsg;
+
+    @FindBy(xpath = "//*[contains (text(), 'less than or equal to 5mb')]")
+    public WebElement imageTooLargeErrorMsg;
+
     //////////////METHODS//////////////////////////////
 
     public WebElement selectLockTypeForMultilockGame(String lockType){

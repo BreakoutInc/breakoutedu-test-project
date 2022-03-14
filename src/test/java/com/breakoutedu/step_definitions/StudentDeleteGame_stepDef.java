@@ -1,23 +1,14 @@
 package com.breakoutedu.step_definitions;
 
 import io.cucumber.java.en.And;
-import com.breakoutedu.pages.BELoginPage;
-import com.breakoutedu.pages.StudentHomePage;
 import com.breakoutedu.pages.StudentMyGamesPage;
 import static com.breakoutedu.utility.BrowserUtil.*;
-import com.github.javafaker.Faker;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
-
-import static com.breakoutedu.utility.BrowserUtil.*;
 import static org.junit.Assert.*;
-import java.util.List;
+
 
 public class StudentDeleteGame_stepDef {
-    BELoginPage loginPage = new BELoginPage();
-    Faker faker = new Faker();
-    StudentHomePage homePage = new StudentHomePage();
     StudentMyGamesPage gamesPage = new StudentMyGamesPage();
 
     //--------
