@@ -7,6 +7,7 @@ import com.breakoutedu.pages.StudentMyGamesPage;
 
 import static com.breakoutedu.utility.BrowserUtil.*;
 
+import static com.breakoutedu.utility.BrowserUtil.*;
 import com.breakoutedu.utility.Driver;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
@@ -28,7 +29,8 @@ public class StudentPlayGame_stepDef {
     StudentMyGamesPage gamesPage = new StudentMyGamesPage();
 
 
-    public String gameTitle = faker.company().buzzword();
+
+    public String gameTitle = faker.artist().name();
 
     @Given("student is on the Home Page")
     public void studentIsOnTheHomePage() {
@@ -36,11 +38,17 @@ public class StudentPlayGame_stepDef {
         loginPage.studentLoginWthBE(read("student1_user"), read("studentPassword"));
     }
 
-    @When("student clicks My Games module and clicks Create a Game")
+    @When("student clicks My Games module")
     public void studentClicksCreateAGame() {
+        waitForPageToLoad(5);
         homePage.myGamesModule.click();
+    }
+
+    @And("clicks Create a Game")
+    public void clicksCreateAGame() {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-        wait.until(ExpectedConditions.elementToBeClickable(gamesPage.createNewGameBtn)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(gamesPage.createNewGameBtn));
+        gamesPage.createNewGameBtn.click();
     }
 
     @And("selects class and clicks create game title")
@@ -121,9 +129,14 @@ public class StudentPlayGame_stepDef {
 
     @And("clicks Add New Lock button")
     public void clicksAddNewLockButton() {
-        gamesPage.addNewLock.click();
+        clickWithJS(gamesPage.addNewLock);
     }
 
+
+    @And("inputs Lock Story text for multi-lock")
+    public void inputsLockStoryTextForMultiLock() {
+        gamesPage.lockStoryInputMultiL.sendKeys(faker.chuckNorris().fact());
+    }
 
 }
 
