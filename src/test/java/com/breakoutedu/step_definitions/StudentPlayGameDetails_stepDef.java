@@ -17,6 +17,9 @@ public class StudentPlayGameDetails_stepDef {
     StudentHomePage homePage = new StudentHomePage();
     StudentMyGamesPage gamesPage = new StudentMyGamesPage();
 
+    //----
+
+
 
     @Then("verifies all {string} can be selected")
     public void verifiesAllCanBeSelected(String lockTypes) {
@@ -37,17 +40,21 @@ public class StudentPlayGameDetails_stepDef {
         assertTrue(gamesPage.alertForWrongTitle.isDisplayed());
     }
 
+
     @And("provides existing game title and clicks next")
     public void providesExistingGameTitleAndClicksNext() {
         homePage.myGamesModule.click();
         waitForPageToLoad(5);
-        Assert.assertTrue(gamesPage.gameIsPresentInCreatedGamesColumn(""));
-        gamesPage.titleInput.sendKeys("test");
+        String existingGameTitle = gamesPage.getGameNameFromCreatedColumn();
+        gamesPage.createNewGameBtn.click();
+        gamesPage.listOfClasses.get(0).click();
+        gamesPage.createGameBtn.click();
+        gamesPage.titleInput.sendKeys(existingGameTitle);
     }
 
     @Then("verifies Title already has been taken alert is displayed")
     public void verifiesTitleAlreadyHasBeenTakenAlertIsDisplayed() {
-
+        gamesPage.alertForWrongTitle.isDisplayed();
     }
 
     @And("selects Non-Sequential game type")
