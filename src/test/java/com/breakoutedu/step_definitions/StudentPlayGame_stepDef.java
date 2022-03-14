@@ -51,8 +51,8 @@ public class StudentPlayGame_stepDef {
         gamesPage.createNewGameBtn.click();
     }
 
-    @And("selects class and clicks create game title")
-    public void selectsClassAndClicksCreateGameTitle() {
+    @And("selects class and clicks create game button")
+    public void selectsClassAndClicksCreateGame() {
         gamesPage.listOfClasses.get(0).click();
         gamesPage.createGameBtn.click();
 

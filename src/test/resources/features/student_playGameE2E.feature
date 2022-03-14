@@ -4,7 +4,7 @@ Feature: Student able to play game successfully
     Given student is on the Home Page
     When student clicks My Games module
     And clicks Create a Game
-    And selects class and clicks create game title
+    And selects class and clicks create game button
 
    @done
   Scenario: Student plays single-lock game successfully
