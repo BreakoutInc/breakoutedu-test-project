@@ -7,7 +7,6 @@ import com.breakoutedu.pages.StudentMyGamesPage;
 
 import static com.breakoutedu.utility.BrowserUtil.*;
 
-import static com.breakoutedu.utility.BrowserUtil.*;
 import com.breakoutedu.utility.Driver;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
@@ -17,10 +16,6 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class StudentPlayGame_stepDef {
     BELoginPage loginPage = new BELoginPage();
@@ -114,7 +109,7 @@ public class StudentPlayGame_stepDef {
 
     @And("creates color lock")
     public void createsLock() {
-        gamesPage.createLockForMultilockGame("color", "text", "RXQB");
+        gamesPage.createLockForMultlGame("color", "text", "RXQB");
     }
 
     @And("clicks Add Another Lock button")
@@ -123,8 +118,8 @@ public class StudentPlayGame_stepDef {
     }
 
     @And("creates directional lock")
-    public void createsSecondLock() {
-        gamesPage.createLockForMultilockGame("directional", "text", "UUDR");
+    public void createsDirectLock() {
+        gamesPage.createLockForMultlGame("directional", "text", "UUDR");
     }
 
     @And("clicks Add New Lock button")

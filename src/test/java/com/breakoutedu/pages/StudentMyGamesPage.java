@@ -3,6 +3,7 @@ package com.breakoutedu.pages;
 import static com.breakoutedu.utility.BrowserUtil.*;
 import static com.breakoutedu.utility.Driver.*;
 
+import com.breakoutedu.utility.ConfigReader;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
@@ -267,7 +268,11 @@ public class StudentMyGamesPage {
         return getDriver().findElement(By.xpath("//p[text()='Created']/..//p[text()='"+gameName+"']")).isDisplayed();
     }
 
-    public void createLockForMultilockGame(String lockType, String lockClue, String lockCombination) {
+    public String getGameNameFromCreatedColumn(){
+       return getDriver().findElement(By.xpath("//div[contains (@class, 'gameTitle')]/p")).getText();
+    }
+
+    public void createLockForMultlGame(String lockType, String lockClue, String lockCombination) {
         //----lines below are for starting game
 //        this.selectLockTypeForMultilockGame(lockType).click();
 //        this.lockStoryInputMultiL.click();   //????? maybe don't need
@@ -283,7 +288,58 @@ public class StudentMyGamesPage {
 
         switch (lockClue) {
             case "Image":
-                this.uploadFile.sendKeys("/Users/yuliiarublenko/Desktop/breakouteduuuu.jpeg");
+                this.uploadFile.sendKeys(ConfigReader.read("image_path"));
+                break;
+            case "Text":
+                this.textLockInput.click();
+                textLockInput.sendKeys(faker.friends().quote());
+                break;
+            case "Video Embed Code":
+                this.embedCodeInput.sendKeys("<iframe width='560' height='315' src='https://www.youtube.com/embed/1QTc2nDP49A' title='YouTube video player' " +
+                        "frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>");
+                break;
+            default:
+                System.out.println("Wrong lock clue provided");
+                break;
+        }
+
+        switch (lockType) {
+            case "text":
+                this.selectLetterForLockClue(lockCombination);
+                break;
+            case "number":
+                this.selectNumbersForLockClue(lockCombination);
+                break;
+            case "directional":
+                this.selectDirectionForLockClue(lockCombination);
+                break;
+            case "shape":
+                this.selectShapeForLockClue(lockCombination);
+                break;
+            case "color":
+                this.selectColorForLockClue(lockCombination);
+                break;
+            default:
+                System.out.println("Wrong lock clue type provided, make sure it's all lower case");
+                break;
+
+
+        }
+
+    }
+
+    // creates lock for multil game with ability to provide custom image file type from properties file
+    public void createLockForMultlGame(String lockType, String lockClue, String lockCombination, String imageType) {
+        scrollToElement(this.addNewLock);
+        clickWithJS(addNewLock);
+        clickWithJS(this.selectLockTypeForMultilockGame(lockType));
+        this.lockStoryInputMultiL.click();
+        this.lockStoryInputMultiL.sendKeys(faker.hitchhikersGuideToTheGalaxy().quote());
+        this.selectLockClue(lockClue);
+
+        switch (lockClue) {
+            case "Image":
+                this.uploadFile.sendKeys(ConfigReader.read(imageType));
                 break;
             case "Text":
                 this.textLockInput.click();
@@ -322,5 +378,3 @@ public class StudentMyGamesPage {
         }
 
     }}
-
-
