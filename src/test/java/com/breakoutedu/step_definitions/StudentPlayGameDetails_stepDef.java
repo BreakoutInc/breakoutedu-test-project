@@ -12,14 +12,9 @@ import static org.junit.Assert.*;
 
 
 public class StudentPlayGameDetails_stepDef {
-    BELoginPage loginPage = new BELoginPage();
     Faker faker = new Faker();
     StudentHomePage homePage = new StudentHomePage();
     StudentMyGamesPage gamesPage = new StudentMyGamesPage();
-
-    //----
-
-
 
     @Then("verifies all {string} can be selected")
     public void verifiesAllCanBeSelected(String lockTypes) {

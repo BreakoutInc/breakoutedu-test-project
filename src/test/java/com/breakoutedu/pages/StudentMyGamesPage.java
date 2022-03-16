@@ -132,6 +132,21 @@ public class StudentMyGamesPage {
     @FindBy(xpath = "//*[contains (text(), 'less than or equal to 5mb')]")
     public WebElement imageTooLargeErrorMsg;
 
+    @FindBy(xpath = "//p[text()='Submit to Class']/..")
+    public WebElement submitToClassBtn;  //for first game in Created
+
+    @FindBy(xpath = "//textarea")
+    public WebElement submitGameInput;
+
+    @FindBy(xpath = "//button[contains (text(), 'SUBMIT')]")
+    public WebElement submitBtn;
+
+    @FindBy(xpath = "//p[text()='Submitted']/following-sibling::div[@class='inline']")
+    public List<WebElement> submittedGamesList;
+
+    @FindBy(xpath = "//div[@id='swal2-validation-message']")
+    public WebElement submitWthNoCommentError;
+
     //////////////METHODS//////////////////////////////
 
     public WebElement selectLockTypeForMultilockGame(String lockType){
@@ -377,4 +392,14 @@ public class StudentMyGamesPage {
 
         }
 
-    }}
+    }
+
+    public WebElement submitBtnForGivenGame(String gameName){
+        return getDriver().findElement(By.xpath("//p[text()='"+gameName+"']/ancestor::div[@class='inline']//p[contains (text(), 'Submit to Class')]"));
+    }
+
+
+
+
+
+}

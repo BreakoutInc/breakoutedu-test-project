@@ -1,19 +1,14 @@
 package com.breakoutedu.step_definitions;
-import com.breakoutedu.pages.BELoginPage;
-import com.breakoutedu.pages.StudentHomePage;
+
 import com.breakoutedu.pages.StudentMyGamesPage;
 import static com.breakoutedu.utility.ConfigReader.*;
-import com.github.javafaker.Faker;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import org.junit.Assert;
 import static com.breakoutedu.utility.BrowserUtil.*;
 import static org.junit.Assert.*;
 
 public class StudentUploadImage_stepDef {
-    BELoginPage loginPage = new BELoginPage();
-    Faker faker = new Faker();
-    StudentHomePage homePage = new StudentHomePage();
     StudentMyGamesPage gamesPage = new StudentMyGamesPage();
 
     @And("selects Image lock type")
