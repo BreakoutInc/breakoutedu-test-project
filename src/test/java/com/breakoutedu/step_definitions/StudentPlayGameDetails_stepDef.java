@@ -3,10 +3,15 @@ package com.breakoutedu.step_definitions;
 import com.breakoutedu.pages.BELoginPage;
 import com.breakoutedu.pages.StudentHomePage;
 import com.breakoutedu.pages.StudentMyGamesPage;
+import com.breakoutedu.utility.ConfigReader;
+import com.breakoutedu.utility.Driver;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import static com.breakoutedu.utility.BrowserUtil.*;
 import static org.junit.Assert.*;
 
@@ -25,9 +30,10 @@ public class StudentPlayGameDetails_stepDef {
     }
 
 
-    @And("provides title under three characters")
+    @And("provides title under three characters and clicks next")
     public void providesTitleUnderCharacters() {
         gamesPage.titleInput.sendKeys(faker.letterify("##"));
+        gamesPage.nextBtn.click();
     }
 
     @Then("verifies The title must be at least 3 characters alert is displayed")
@@ -38,13 +44,8 @@ public class StudentPlayGameDetails_stepDef {
 
     @And("provides existing game title and clicks next")
     public void providesExistingGameTitleAndClicksNext() {
-        homePage.myGamesModule.click();
-        waitForPageToLoad(5);
-        String existingGameTitle = gamesPage.getGameNameFromCreatedColumn();
-        gamesPage.createNewGameBtn.click();
-        gamesPage.listOfClasses.get(0).click();
-        gamesPage.createGameBtn.click();
-        gamesPage.titleInput.sendKeys(existingGameTitle);
+        gamesPage.titleInput.sendKeys(ConfigReader.read("existing_gameTitle"));
+        gamesPage.nextBtn.click();
     }
 
     @Then("verifies Title already has been taken alert is displayed")
@@ -56,4 +57,17 @@ public class StudentPlayGameDetails_stepDef {
     public void selectsNonSequentialGameType() {
         gamesPage.selectGameCategory("Non-sequential game").click();
     }
+
+    @And("clicks Save and Play")
+    public void clicksSaveAndPlay() {
+//        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+//        wait.until(ExpectedConditions.elementToBeClickable(gamesPage.saveAndPlayBtn));
+        clickWithJS( gamesPage.saveAndPlayBtn );
+    }
+
+    @Then("verifies Please provide lock clue text alert is displayed")
+    public void verifiesPleaseProvideLockClueTextAlertIsDisplayed() {
+        assertTrue(gamesPage.alertForNoLockClueText.isDisplayed());
+    }
+
 }

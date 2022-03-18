@@ -37,7 +37,7 @@ Feature: Student uploads file as lock clue when creating a game
     And selects "<game type>"
     And provides valid game title and clicks next
     And clicks Add New Lock button
-    And creates lock with image type clue
+    And creates lock with image clue
     And selects Image lock type
     And uploads image
     Then verifies image was uploaded
@@ -50,7 +50,7 @@ Feature: Student uploads file as lock clue when creating a game
   Scenario Outline: Student tries to upload image with unsupported media type - Multi-lock
     And selects "<game type>"
     And provides valid game title and clicks next
-    And creates lock with custom image type - large
+    And creates lock with custom image type - wrong media type
     And clicks Save as draft
     Then verifies error message is displayed
     Examples:
@@ -61,16 +61,9 @@ Feature: Student uploads file as lock clue when creating a game
   Scenario Outline: Student tries to upload image with too big size - Multi-lock
     And selects "<game type>"
     And provides valid game title and clicks next
-    And creates lock with custom image type - wrong media type
+    And creates lock with custom image type - large
     Then verifies the please insert less than or equal to five mb alert is displayed
     Examples:
       |game type|
       |Non-sequential game|
       |Sequential game|
-
-
-#    Examples:
-#      |game type|
-#      | Single lock|
-#      | Non-sequential game |
-#      |Sequential game|

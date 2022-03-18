@@ -25,7 +25,7 @@ public class StudentPlayGame_stepDef {
 
 
 
-    public String gameTitle = faker.artist().name();
+    public String gameTitle = faker.ancient().hero();
 
     @Given("student is on the Home Page")
     public void studentIsOnTheHomePage() {

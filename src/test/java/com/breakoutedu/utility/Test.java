@@ -33,7 +33,7 @@ public class Test {
         gamesPage.createGameBtn.click();
 
 
-        gamesPage.selectGameCategory("Single lock").click();
+        gamesPage.selectGameCategory("Single lock");
         String title =faker.company().buzzword();
         gamesPage.titleInput.sendKeys(title);
         gamesPage.nextBtn.click();
