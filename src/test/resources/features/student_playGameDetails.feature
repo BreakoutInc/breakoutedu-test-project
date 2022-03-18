@@ -38,23 +38,34 @@ Feature: Student able to select various elements while creating game
 #      |Sequential game    |
 
 
+  @done
    Scenario Outline: Student tries to create a game with invalid game title
     And selects "<game type>"
-    And provides title under three characters
+    And provides title under three characters and clicks next
     Then verifies The title must be at least 3 characters alert is displayed
      Examples:
        |game type|
        |Single lock|
-       |Non-Sequential Game |
-       |Sequential Game|
+       |Non-sequential game|
+       |Sequential game|
 
 
+    @done
      Scenario Outline: Student tries to create a game with existing game title
      And selects "<game type>"
      And provides existing game title and clicks next
      Then verifies Title already has been taken alert is displayed
-     Examples:
-       |game type|
-       |Single lock|
-       |Non-sequential game |
-       |Sequential game|
+       Examples:
+         |game type|
+         |Single lock|
+         |Non-sequential game|
+         |Sequential game|
+
+       @done
+       Scenario: Student tries to submit a game with no lock clue text - Single lock
+         And selects game type
+         And provides valid game title and clicks next
+         And selects Text lock clue
+         And selects lock clue combination
+         And clicks Save and Play
+         Then verifies Please provide lock clue text alert is displayed

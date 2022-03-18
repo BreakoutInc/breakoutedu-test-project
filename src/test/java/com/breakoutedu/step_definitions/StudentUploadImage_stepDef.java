@@ -24,7 +24,7 @@ public class StudentUploadImage_stepDef {
     @Then("verifies image was uploaded")
     public void verifiesImageWasUploaded() {
         waitForPageToLoad(3);
-        System.out.println(" This is an attrib value   ->"+gamesPage.uploadImgAssert.getAttribute("src"));
+        System.out.println(" This is an attrib value   ->" + gamesPage.uploadImgAssert.getAttribute("src"));
         assertFalse(gamesPage.uploadImgAssert.getAttribute("src").contains("front/images/upload-icon.png"));
 
     }
@@ -39,23 +39,31 @@ public class StudentUploadImage_stepDef {
         assertTrue(gamesPage.unsupportedMediaTypeErrorMsg.isDisplayed());
     }
 
-    @And("uploads large image as a lock clue")
-    public void uploadsLargeImageAsALockClue() {
-        gamesPage.uploadFile.sendKeys(read("imageLarge_path"));
-    }
 
     @Then("verifies the please insert less than or equal to five mb alert is displayed")
     public void verifiesImageTooLargeAlertIsDisplayed() {
-       assertTrue(gamesPage.imageTooLargeErrorMsg.isDisplayed());
+        assertTrue(gamesPage.imageTooLargeErrorMsg.isDisplayed());
+    }
+
+    @And("creates lock with image clue")
+    public void createsLockWithImageTypeClue () {
+        gamesPage.createLockForMultlGame("directional", "text", "UDLR", "image_path");
     }
 
     @And("creates lock with custom image type - large")
     public void createsLockWithCustomImageType() {
-        gamesPage.createLockForMultlGame("directional", "text", "UDLR","imageWrongType_path");
+        gamesPage.createLockForMultlGame("directional", "text", "UDLR", "imageLarge_path");
     }
 
     @And("creates lock with custom image type - wrong media type")
-    public void createsLockWithCustomImageTypeWrongMediaType() {
-        gamesPage.createLockForMultlGame("directional", "text", "UDLR","imageLarge_path");
+    public void createsLockWithCustomImageTypeWrongMediaType () {
+        gamesPage.createLockForMultlGame("directional", "text", "UDLR", "imageWrongType_path");
+        }
+
+
+    @And("uploads large image as a lock clue")
+    public void uploadsLargeImageAsALockClue() {
+        gamesPage.uploadFile.sendKeys(read("imageLarge_path"));
     }
 }
+

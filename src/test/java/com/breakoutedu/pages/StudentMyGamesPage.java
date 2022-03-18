@@ -6,6 +6,7 @@ import static com.breakoutedu.utility.Driver.*;
 import com.breakoutedu.utility.ConfigReader;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -39,7 +40,7 @@ public class StudentMyGamesPage {
     @FindBy(xpath = "//*[contains (text(), 'Single Lock')]/..//li")
     public WebElement singleLockBtn;
 
-    @FindBy(xpath = "//*[contains (text(), 'Non-Sequential Game')]/..")
+    @FindBy(xpath = "//*[contains (text(), 'Non-Sequential Game')]")
     public WebElement nonSeqGameBtn;
 
     @FindBy(xpath = "//*[contains (text(), 'One puzzle leads')]/..")
@@ -60,7 +61,7 @@ public class StudentMyGamesPage {
     @FindBy(xpath = "NAAAAAAAAAAAAA")
     public WebElement additionalLockStoryInput;
 
-    @FindBy(xpath = "//*[@id='edit_info']/div[2]/div[2]/div[2]/div")
+    @FindBy(xpath = "//*[@id='locksetupstory']//div[@role='textbox']")
     public WebElement lockStoryInputMultiL;
 
     @FindBy(xpath = "//button[contains (text(), 'SAVE AS DRAFT')]")
@@ -105,7 +106,10 @@ public class StudentMyGamesPage {
     @FindBy(xpath = "//*[@id='myTabContent']/div[6]/div[3]/div/button[3]") //??
     public WebElement saveAndExitBtn;
 
-    @FindBy(xpath = "//div[@id='lightbox'][@aria-hidden='true']") //??
+    @FindBy(xpath = "//button[contains (text(), 'SAVE AND PLAY')]")
+    public WebElement saveAndPlayBtn;
+
+    @FindBy(xpath = "//div[@class='alert__icon']") //??
     public WebElement alertForWrongTitle;
 
     @FindBy(xpath = "//*[text()='Created']/..//img[contains (@src, 'ellipsis-purple-01')]")
@@ -146,6 +150,9 @@ public class StudentMyGamesPage {
 
     @FindBy(xpath = "//div[@id='swal2-validation-message']")
     public WebElement submitWthNoCommentError;
+
+    @FindBy(xpath = "//div[@class='alert__icon']")
+    public WebElement alertForNoLockClueText;
 
     //////////////METHODS//////////////////////////////
 
@@ -348,8 +355,10 @@ public class StudentMyGamesPage {
         scrollToElement(this.addNewLock);
         clickWithJS(addNewLock);
         clickWithJS(this.selectLockTypeForMultilockGame(lockType));
-        this.lockStoryInputMultiL.click();
-        this.lockStoryInputMultiL.sendKeys(faker.hitchhikersGuideToTheGalaxy().quote());
+        Actions actions = new Actions(getDriver());
+        actions.moveToElement(this.lockStoryInputMultiL).click().sendKeys(faker.hitchhikersGuideToTheGalaxy().quote()).perform();
+//        this.lockStoryInputMultiL.click();
+//        this.lockStoryInputMultiL.sendKeys(faker.hitchhikersGuideToTheGalaxy().quote());
         this.selectLockClue(lockClue);
 
         switch (lockClue) {
