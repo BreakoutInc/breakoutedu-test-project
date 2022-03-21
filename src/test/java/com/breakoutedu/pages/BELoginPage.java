@@ -1,7 +1,5 @@
 package com.breakoutedu.pages;
 
-import static com.breakoutedu.utility.ConfigReader.*;
-
 import com.breakoutedu.utility.BrowserUtil;
 import com.breakoutedu.utility.Driver;
 import org.openqa.selenium.By;
@@ -71,6 +69,23 @@ public class BELoginPage {
 
     @FindBy(xpath = "//a[@href='/profile']/div")
     public WebElement myAccountIcon;
+
+    //------classroom login-----
+    @FindBy(xpath = "//a[@id='student_google_login']")
+    public WebElement loginWithGoogleClass_Btn;
+
+    @FindBy(xpath = "//div[text()='Use another account']")
+    public WebElement useAnotherAcc_Btn;
+
+    @FindBy(xpath = "//input[@type='email']")
+    public WebElement emailGoogleClass_Input;
+
+    @FindBy(xpath = "//span[text()='Next']")
+    public WebElement nextBtn_googleCl;
+
+    @FindBy(xpath = "//input[@type='password']")
+    public WebElement passwordGoogleCl_Input;
+
 
 
     //*******************METHODS********************
