@@ -3,7 +3,7 @@ package com.breakoutedu.pages;
 import static com.breakoutedu.utility.BrowserUtil.*;
 import static com.breakoutedu.utility.Driver.*;
 
-import com.breakoutedu.utility.ConfigReader;
+import static com.breakoutedu.utility.ConfigReader.*;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
@@ -17,6 +17,7 @@ public class TeacherLOTDPage {
     public TeacherLOTDPage(){
         PageFactory.initElements(getDriver(),this);
     }
+    BELoginPage loginPage = new BELoginPage();
 
     @FindBy(xpath = "//div[@id='collapseTwo']//*[text()]")
     public WebElement lotdAnswerKey;
@@ -28,5 +29,13 @@ public class TeacherLOTDPage {
     public WebElement lockCombinationsBtn;
 
 
+    public String getLOTDanswerKey(){
+        goTo("user");
+        loginPage.teacherLogin(read("teacher1"), read("teacherPassword"));
+        lotdGameBanner.click();
+        waitForPageToLoad(5);
+        lockCombinationsBtn.click();
+        return lotdAnswerKey.getText();
+    }
 
 }
