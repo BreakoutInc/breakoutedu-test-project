@@ -27,6 +27,9 @@ public StudentHomePage(){
   @FindBy(xpath = "//a[text()='Notifications']")
   public WebElement notificationsModule;
 
+  @FindBy(xpath = "//div[@id='lockOfDayCard']//img[contains (@src, 'playnow')]")
+  public WebElement lotdPlayBanner;
+
 
 
 }
