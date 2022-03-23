@@ -23,6 +23,9 @@ public class StudentPlayGamePage {
     @FindBy(xpath = "//img[contains (@src, 'keyboard')]")
     public WebElement keyboardImg;
 
+    @FindBy(xpath = "//img[contains (@src, 'endscreens')]")
+    public WebElement imageYouBrokeOut;
+
 
     public void enterGameClueCombination(String combination){
         for (int i = 0; i < combination.length(); i++) {

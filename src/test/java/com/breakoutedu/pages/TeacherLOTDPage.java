@@ -31,6 +31,7 @@ public class TeacherLOTDPage {
 
     public String getLOTDanswerKey(){
         goTo("user");
+        waitForPageToLoad(5);
         loginPage.teacherLogin(read("teacher1"), read("teacherPassword"));
         lotdGameBanner.click();
         waitForPageToLoad(5);

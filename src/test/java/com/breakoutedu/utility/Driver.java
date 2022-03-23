@@ -9,6 +9,7 @@ import org.openqa.selenium.safari.SafariDriver;
 public class Driver {
 
     private static WebDriver obj ;
+    private static WebDriver obj2 ;
 
     private Driver(){ }
 
@@ -43,6 +44,42 @@ public class Driver {
 
         }else{
             return obj ;
+
+        }
+
+    }
+
+    public static WebDriver getDriver2(){
+        // read the browser type you want to launch from properties file
+        String browserName = ConfigReader.read("browser2") ;
+
+        if(obj2 == null){
+
+            // according to browser type set up driver correctly
+            switch (browserName ){
+                case "chrome" :
+                    WebDriverManager.chromedriver().setup();
+                    obj2 = new ChromeDriver();
+                    break;
+                case "firefox" :
+                    WebDriverManager.firefoxdriver().setup();
+                    obj2 = new FirefoxDriver();
+                    break;
+                case "safari":
+                    WebDriverManager.safaridriver().setup();
+                    obj2 = new SafariDriver();
+                    break;
+                // other browsers omitted
+                default:
+                    obj2 = null ;
+                    System.out.println("UNKNOWN BROWSER TYPE!!! " + browserName);
+            }
+            return obj2 ;
+
+
+
+        }else{
+            return obj2 ;
 
         }
 

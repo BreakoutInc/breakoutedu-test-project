@@ -26,6 +26,8 @@ public class BrowserUtil {
         }
     }
 
+
+
     //wait for given amount of seconds
     public static void waitFor(int seconds){
 
