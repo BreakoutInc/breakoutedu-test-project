@@ -11,38 +11,41 @@ public class StudentSignUpPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+    @FindBy(xpath = "//a[contains (@href, 'register')]")
+    public WebElement signUphere;
+
     @FindBy(xpath = "//a[text()=' Signup With Breakout EDU']")
-    WebElement signupWithBE;
+    public WebElement signupWithBE;
 
     @FindBy(id = "//a[@id='student_google_login']")
-    WebElement googleSignUp;
+    public WebElement googleSignUp;
 
     @FindBy(xpath = "//input[@name='classCode']")
-    WebElement classCodeInput;
+    public WebElement classCodeInput;
 
     @FindBy(xpath = "//a//a[@id='load1']")
-    WebElement nextBtn_step1;
+    public WebElement nextBtn_step1;
 
     @FindBy (xpath = "//input[@name='firstName']")
-    WebElement firstNameInput;
+    public WebElement firstNameInput;
 
     @FindBy(xpath = "//input[@name='lastName']")
-    WebElement lastNameInput;
+    public WebElement lastNameInput;
 
     @FindBy (xpath = "//input[@name='username']")
-    WebElement usernameInput;
+    public WebElement usernameInput;
 
     @FindBy (xpath = "//a[@class='btn btn-primary pul-lft'][@href='#signUpStep_1']")
-    WebElement goBackBtn_step2;
+    public WebElement goBackBtn_step2;
 
     @FindBy (xpath = "//a[@id='load2']")
-    WebElement nextBtn_step2;
+    public WebElement nextBtn_step2;
 
     @FindBy (xpath = "//a[@class='btn btn-primary pul-lft'][@href='#signUpStep_2']")
-    WebElement goBackBtn_step3;
+    public WebElement goBackBtn_step3;
 
     @FindBy (xpath = "//a[@id='load3']")
-    WebElement nextBtn_step3;
+    public WebElement nextBtn_step3;
 
 
 
