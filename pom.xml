@@ -12,6 +12,38 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+    <profiles>
+        <profile>
+            <id>stag</id>
+            <activation>
+                <property>
+                    <name>environment</name>
+                    <value>stag</value>
+                </property>
+            </activation>
+        </profile>
+        <!-- mvn -Denvironment=sit clean test -->
+
+        <profile>
+            <id>preprod</id>
+            <activation>
+                <property>
+                    <name>environment</name>
+                    <value>preprod</value>
+                </property>
+            </activation>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <activation>
+                <property>
+                    <name>environment</name>
+                    <value>prod</value>
+                </property>
+            </activation>
+        </profile>
+
+    </profiles>
 
     <dependencies>
 
@@ -62,6 +94,12 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.32</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aeonbits.owner</groupId>
+            <artifactId>owner-java8</artifactId>
+            <version>1.0.12</version>
         </dependency>
 
 
