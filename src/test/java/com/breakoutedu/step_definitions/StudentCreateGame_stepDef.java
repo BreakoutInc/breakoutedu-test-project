@@ -30,7 +30,7 @@ public class StudentCreateGame_stepDef {
     @Given("student is on the Home Page")
     public void studentIsOnTheHomePage() {
         goTo("student");
-        loginPage.studentLoginWthBE(read("student1_user"), read("studentPassword"));
+        loginPage.studentLoginWthBE(read("student1"), read("stud.psw"));
     }
 
     @When("student clicks My Games module")

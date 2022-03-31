@@ -37,8 +37,8 @@ public class StudentLogin_stepDef {
 
     @And("enters valid Email and Password")
     public void entersValidEmailAndPassword() {
-        loginPage.studentUsernameInput.sendKeys(read("student2_user"));
-        loginPage.studentPswInput.sendKeys(read("studentPassword"));
+        loginPage.studentUsernameInput.sendKeys(read("student2"));
+        loginPage.studentPswInput.sendKeys(read("stud.psw"));
     }
 
     @And("clicks on Log In")
@@ -86,13 +86,13 @@ public class StudentLogin_stepDef {
         for (String ChildWindow : allWindowHandles) {
             if (!mainWindow.equalsIgnoreCase(ChildWindow)) {
                 getDriver().switchTo().window(ChildWindow);
-                loginPage.emailGoogleClass_Input.sendKeys(read("student1_classroom"));
+                loginPage.emailGoogleClass_Input.sendKeys(read("student1.classroom"));
                 loginPage.nextBtn_googleCl.click();
 
                 WebDriverWait wait = new WebDriverWait(getDriver(), 10);
                 wait.until(ExpectedConditions.elementToBeClickable(loginPage.passwordGoogleCl_Input));
 
-                loginPage.passwordGoogleCl_Input.sendKeys(read("studentClassPsw"));
+                loginPage.passwordGoogleCl_Input.sendKeys(read("stud.class.psw"));
                 loginPage.nextBtn_googleCl.click();
                 getDriver().close();
                 System.out.println("Child window closed");
@@ -103,7 +103,7 @@ public class StudentLogin_stepDef {
 
     @And("enters valid Classroom password and clicks Next")
     public void entersValidClassroomPasswordAndClicksNext() {
-        loginPage.passwordGoogleCl_Input.sendKeys(read("studentClassPsw"));
+        loginPage.passwordGoogleCl_Input.sendKeys(read("stud.class.psw"));
         loginPage.nextBtn_googleCl.click();
     }
 }

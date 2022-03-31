@@ -25,7 +25,7 @@ public class Test {
 
         //student game play
         goTo("student");
-        loginPage.studentLoginWthBE(read("student1_user"),read("studentPassword"));
+        loginPage.studentLoginWthBE(read("student1"),read("stud.psw"));
         homePage.myGamesModule.click();
         gamesPage.createNewGameBtn.click();
         gamesPage.listOfClasses.get(0).click();

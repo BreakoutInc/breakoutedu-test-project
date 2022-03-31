@@ -18,7 +18,7 @@ public class StudentUploadImage_stepDef {
 
     @And("uploads image")
     public void uploadsImage() {
-        gamesPage.uploadFile.sendKeys(read("image_path"));
+        gamesPage.uploadFile.sendKeys(read("image.path"));
     }
 
     @Then("verifies image was uploaded")
@@ -31,7 +31,7 @@ public class StudentUploadImage_stepDef {
 
     @And("uploads image with invalid media type")
     public void uploadsImageWithInvalidMediaType() {
-        gamesPage.uploadFile.sendKeys(read("imageWrongType_path"));
+        gamesPage.uploadFile.sendKeys(read("image.wrong.type.path"));
     }
 
     @Then("verifies error message is displayed")
@@ -47,23 +47,23 @@ public class StudentUploadImage_stepDef {
 
     @And("creates lock with image clue")
     public void createsLockWithImageTypeClue () {
-        gamesPage.createLockForMultlGame("directional", "text", "UDLR", "image_path");
+        gamesPage.createLockForMultlGame("directional", "text", "UDLR", "image.path");
     }
 
     @And("creates lock with custom image type - large")
     public void createsLockWithCustomImageType() {
-        gamesPage.createLockForMultlGame("directional", "text", "UDLR", "imageLarge_path");
+        gamesPage.createLockForMultlGame("directional", "text", "UDLR", "image.large.path");
     }
 
     @And("creates lock with custom image type - wrong media type")
     public void createsLockWithCustomImageTypeWrongMediaType () {
-        gamesPage.createLockForMultlGame("directional", "text", "UDLR", "imageWrongType_path");
+        gamesPage.createLockForMultlGame("directional", "text", "UDLR", "image.wrong.type.path");
         }
 
 
     @And("uploads large image as a lock clue")
     public void uploadsLargeImageAsALockClue() {
-        gamesPage.uploadFile.sendKeys(read("imageLarge_path"));
+        gamesPage.uploadFile.sendKeys(read("image.large.path"));
     }
 }
 

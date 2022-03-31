@@ -38,8 +38,8 @@ public class StudentPlayGame_stepDef {
     public void playsGame() {
         //login as a teacher and get an answer key for the LOTD
 
-             getDriver2().navigate().to(read("user_url"));
-             loginPage.teacherLogin(read("teacher1"), read("teacherPassword"));
+             getDriver2().navigate().to(read("user.url"));
+             loginPage.teacherLogin(read("teacher1"), read("teacher.psw"));
        teacherLOTDPage.lotdGameBanner.click();
      waitForPageToLoad(5);
        teacherLOTDPage.lockCombinationsBtn.click();
