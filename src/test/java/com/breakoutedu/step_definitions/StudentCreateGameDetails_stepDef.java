@@ -3,6 +3,7 @@ package com.breakoutedu.step_definitions;
 import com.breakoutedu.pages.StudentHomePage;
 import com.breakoutedu.pages.StudentMyGamesPage;
 import com.breakoutedu.utility.ConfigReader;
+
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -15,6 +16,7 @@ public class StudentCreateGameDetails_stepDef {
     Faker faker = new Faker();
     StudentHomePage homePage = new StudentHomePage();
     StudentMyGamesPage gamesPage = new StudentMyGamesPage();
+
 
     @Then("verifies all {string} can be selected")
     public void verifiesAllCanBeSelected(String lockTypes) {
@@ -39,7 +41,7 @@ public class StudentCreateGameDetails_stepDef {
 
     @And("provides existing game title and clicks next")
     public void providesExistingGameTitleAndClicksNext() {
-        gamesPage.titleInput.sendKeys(ConfigReader.read("existing_gameTitle"));
+        gamesPage.titleInput.sendKeys(ConfigReader.read("existing.game.title"));
         gamesPage.nextBtn.click();
     }
 

@@ -11,7 +11,7 @@ public class ConfigReader {
 
         static {
             try {
-                FileInputStream in = new FileInputStream("config.properties");
+                FileInputStream in = new FileInputStream(System.getProperty("environment")+".properties");
                 properties.load(in);
                 in.close();
             } catch (IOException e) {
@@ -19,6 +19,10 @@ public class ConfigReader {
             }
         }
 
+        /*
+         String environment = System.getProperty("environment"); //read environment name
+          ConfigFactory.setProperty("env", environment);
+         */
 
         public static String read(String key){
             return properties.getProperty(key) ;

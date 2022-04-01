@@ -18,9 +18,9 @@ public class BrowserUtil {
 
     public static void goTo(String userType){
         if(userType.equals("student")) {
-            Driver.getDriver().navigate().to(read("stud_url"));
+            Driver.getDriver().navigate().to(read("stud.url"));
         }else if(userType.equals("user")){
-            Driver.getDriver().navigate().to(read("user_url"));
+            Driver.getDriver().navigate().to(read("user.url"));
         }else{
             System.out.println("Invalid user type provided");
         }

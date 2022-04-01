@@ -310,7 +310,7 @@ public class StudentMyGamesPage {
 
         switch (lockClue) {
             case "Image":
-                this.uploadFile.sendKeys(ConfigReader.read("image_path"));
+                this.uploadFile.sendKeys(ConfigReader.read("image.path"));
                 break;
             case "Text":
                 this.textLockInput.click();
