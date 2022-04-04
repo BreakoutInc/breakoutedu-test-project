@@ -22,7 +22,7 @@
                 </property>
             </activation>
         </profile>
-        <!-- mvn -Denvironment=sit clean test -->
+        <!-- mvn -Denvironment=value clean test -->
 
         <profile>
             <id>preprod</id>

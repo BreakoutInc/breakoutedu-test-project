@@ -9,6 +9,8 @@ import com.github.javafaker.Faker;
 import org.junit.Assert;
 
 
+import java.util.Properties;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class Test {
@@ -24,40 +26,10 @@ public class Test {
 
 
         //student game play
-        goTo("student");
-        loginPage.studentLoginWthBE(read("student1"),read("stud.psw"));
-        homePage.myGamesModule.click();
-        gamesPage.createNewGameBtn.click();
-        gamesPage.listOfClasses.get(0).click();
-        waitFor(2);
-        gamesPage.createGameBtn.click();
-
-
-        gamesPage.selectGameCategory("Single lock");
-        String title =faker.company().buzzword();
-        gamesPage.titleInput.sendKeys(title);
-        gamesPage.nextBtn.click();
-        gamesPage.lockStoryInputSingleLock.sendKeys(faker.chuckNorris().fact());
-
-        scrollToElement(gamesPage.textLockClueBtn);
-        //waitFor(1);
-        clickWithJS(gamesPage.textLockClueBtn);
-
-//        WebDriverWait wait=new WebDriverWait(Driver.getDriver(), 10);
-//        wait.until(ExpectedConditions.elementToBeClickable(gamesPage.textLockClueBtn));
-
-        //gamesPage.textLockClueBtn.click();
-          gamesPage.textLockInput.sendKeys(faker.harryPotter().quote());
-          waitFor(2);
-          gamesPage.selectLetterForLockClue("TEST");
-          scrollToElement(gamesPage.saveAsDraftBtn);
-        //  waitFor(2);
-         clickWithJS(gamesPage.saveAsDraftBtn);
-    homePage.myGamesModule.click();
-    waitForPageToLoad(5);
-        System.out.println("Boolean"+gamesPage.gameIsPresentInCreatedGamesColumn(title));
-    Assert.assertTrue(gamesPage.gameIsPresentInCreatedGamesColumn(title));
+//        goTo("student");
+//        loginPage.studentLoginWthBE(read("student1"),read("stud.psw"));
 
      // Driver.getDriver().quit();
+
     }
 }
