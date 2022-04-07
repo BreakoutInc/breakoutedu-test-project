@@ -16,34 +16,35 @@
         <profile>
             <id>stag</id>
             <activation>
-                <property>
-                    <name>environment</name>
-                    <value>stag</value>
-                </property>
+<!--                    <activeByDefault>true</activeByDefault>-->
             </activation>
+                <properties>
+                    <env>stag</env>
+                </properties>
+
         </profile>
-        <!-- mvn -Denvironment=value clean test -->
+        <!-- mvn -Denv=value clean test -->
 
         <profile>
             <id>preprod</id>
             <activation>
-                <property>
-                    <name>environment</name>
-                    <value>preprod</value>
-                </property>
+<!--                    <activeByDefault>true</activeByDefault>-->
             </activation>
+                <properties>
+                    <env>preprod</env>
+                </properties>
+
         </profile>
         <profile>
             <id>prod</id>
-            <activation>
-                <property>
-                    <name>environment</name>
-                    <value>prod</value>
-                </property>
-            </activation>
+                <properties>
+                    <env>prod</env>
+                </properties>
         </profile>
 
     </profiles>
+
+
 
     <build>
         <plugins>
@@ -61,7 +62,31 @@
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
+
+<!--        <filters>-->
+<!--            &lt;!&ndash;-->
+<!--                Ensures that the config.properties file is always loaded from the-->
+<!--                configuration directory of the active Maven profile. -->
+<!--            &ndash;&gt;-->
+<!--            <filter>/${env}/.properties</filter>-->
+<!--        </filters>-->
+
+
+
+<!--                Placeholders that are found from the files located in the configured resource-->
+<!--                directories are replaced with the property values found from the profile-->
+<!--                specific configuration file.-->
+
+          <testResources>
+              <testResource>
+                  <directory>src/test/resources</directory>
+                  <filtering>true</filtering>
+              </testResource>
+          </testResources>
+
+
     </build>
 
     <dependencies>
@@ -120,6 +145,8 @@
             <artifactId>owner-java8</artifactId>
             <version>1.0.12</version>
         </dependency>
+
+
 
 
     </dependencies>

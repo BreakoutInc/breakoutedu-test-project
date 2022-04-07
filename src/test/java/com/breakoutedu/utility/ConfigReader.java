@@ -11,7 +11,13 @@ public class ConfigReader {
 
         static {
             try {
-                FileInputStream in = new FileInputStream(System.getProperty("environment")+".properties");
+                Properties props = new Properties();
+                props.load(ConfigReader.class.getClassLoader().getResourceAsStream("project.properties"));
+                String env = props.getProperty("env");
+
+
+               FileInputStream in = new FileInputStream(env+".properties");
+                //FileInputStream in = new FileInputStream("${env}.properties");
                 properties.load(in);
                 in.close();
             } catch (IOException e) {
