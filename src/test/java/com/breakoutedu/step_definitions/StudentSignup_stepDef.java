@@ -42,7 +42,7 @@ public class StudentSignup_stepDef {
     public void providesInvalidUsername() {
     }
 
-    @Then("verifies Username must be between {int} and {int} characters. message is displayed")
+    @Then("verifies Username must be between {int} and {int} characters message is displayed")
     public void verifiesUsernameMustBeBetweenAndCharactersMessageIsDisplayed(int arg0, int arg1) {
     }
 
