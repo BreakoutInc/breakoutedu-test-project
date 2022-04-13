@@ -7,7 +7,7 @@ Feature: Student able to play game successfully
     And selects class and clicks create game button
 
   @done
-  Scenario: Student plays single-lock game successfully
+  Scenario: Student creates single-lock game successfully
     And selects game type
     And provides valid game title and clicks next
     And inputs Lock Story text
@@ -19,7 +19,7 @@ Feature: Student able to play game successfully
 
 
 
-  Scenario Outline: Student plays multi-lock game successfully
+  Scenario Outline: Student creates multi-lock game successfully
     And selects "<game type>"
     And provides valid game title and clicks next
     And inputs Lock Story text for multi-lock

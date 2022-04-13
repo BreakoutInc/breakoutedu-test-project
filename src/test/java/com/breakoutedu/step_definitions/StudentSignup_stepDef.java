@@ -1,6 +1,9 @@
 package com.breakoutedu.step_definitions;
 
 import com.breakoutedu.pages.StudentSignUpPage;
+import static com.breakoutedu.utility.ConfigReader.*;
+
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
@@ -9,7 +12,7 @@ public class StudentSignup_stepDef {
 
 
     //----
-    String classCode = "";
+    Faker faker = new Faker();
 
     @And("clicks on signup here")
     public void clicksOnSignupHere() {
@@ -23,11 +26,12 @@ public class StudentSignup_stepDef {
 
     @And("types class code and clicks Next")
     public void typesClassCodeAndClicksNext() {
-        signUpPage.classCodeInput.sendKeys();
+        signUpPage.classCodeInput.sendKeys(read("class.code"));
     }
 
     @And("provides valid username")
     public void providesValidUsername() {
+        signUpPage.usernameInput.sendKeys(read("student.signup"));
     }
 
     @And("creates a password and clicks Next")

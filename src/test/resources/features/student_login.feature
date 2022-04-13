@@ -17,11 +17,3 @@ Feature: Student Login with Breakout account
     And enters invalid email and password
     And clicks on Log In
     Then verifies Username or password is invalid message is displayed
-
-
-  Scenario: Student Login with Google Classroom successfully
-    When student clicks on Log In With Google Classroom
-    ##And clicks on Use Another Account
-    And enters valid Classroom Email and clicks Next
-   ## And enters valid Classroom password and clicks Next
-    Then verifies Student Home Page in displayed
