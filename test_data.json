@@ -60,15 +60,15 @@
       "district_name": "YuliiaDistrict1"
     },
     {
-      "id": 3,
-      "firstName": "district",
-      "lastName": "two",
+      "id": 860625,
+      "firstName": "Katya",
+      "lastName": "1",
       "password": "yuliiawork22",
       "email": "yuliia+districtadmin2@breakoutedu.com",
       "role_id": 4,
       "type": "school",
-      "is_district": 2,
-      "district_name": "YuliiaDistrict2"
+      "is_district": 1,
+      "district_name": "YDistrict"
     }
   ],
   "students": [
