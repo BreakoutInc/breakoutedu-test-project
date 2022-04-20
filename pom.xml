@@ -68,7 +68,7 @@
 <!--        <filters>-->
 <!--            &lt;!&ndash;-->
 <!--                Ensures that the config.properties file is always loaded from the-->
-<!--                configuration directory of the active Maven profile. -->
+<!--                configuration directory of the active Maven profile.-->
 <!--            &ndash;&gt;-->
 <!--            <filter>/${env}/.properties</filter>-->
 <!--        </filters>-->

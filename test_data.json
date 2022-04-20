@@ -1,0 +1,135 @@
+{
+  "users": [
+    {
+      "id": 860623,
+      "firstName": "Teacher",
+      "lastName": "One",
+      "email": "yuliia+teacher1@breakoutedu.com",
+      "password": "yuliiawork22",
+      "role_id": 3,
+      "school_id": 0
+    },
+    {
+      "id": 860624,
+      "firstName": "Teacher",
+      "lastName": "Two",
+      "email": "yuliia+teacher2@breakoutedu.com",
+      "password": "yuliiawork22",
+      "role_id": 3,
+      "school_id": 860626
+    },
+    {
+      "id": 860619,
+      "firstName": "Sch",
+      "lastName": "Adm",
+      "password": "yuliiawork22",
+      "email": "yuliia+schooladmin@breakoutedu.com",
+      "role_id": 4,
+      "type": "school",
+      "used_code": 2,
+      "total_quantity": 180,
+      "school_id": null,
+      "school_code": "yuliiaschool",
+      "school_name": "YuliiaSchool",
+      "district_id": 0
+    },
+    {
+      "id": 1,
+      "firstName": "Sch",
+      "lastName": "Adm2",
+      "password": "yuliiawork22",
+      "email": "yuliia+schooladmin2@breakoutedu.com",
+      "role_id": 4,
+      "type": "school",
+      "used_code": 0,
+      "total_quantity": 100,
+      "school_id": null,
+      "school_code": "yuliiaschool2",
+      "school_name": "YuliiaSchool2",
+      "district_id": 0
+    },
+    {
+      "id": 2,
+      "firstName": "district",
+      "lastName": "one",
+      "password": "yuliiawork22",
+      "email": "yuliia+districtadmin@breakoutedu.com",
+      "role_id": 4,
+      "type": "school",
+      "is_district": 1,
+      "district_name": "YuliiaDistrict1"
+    },
+    {
+      "id": 3,
+      "firstName": "district",
+      "lastName": "two",
+      "password": "yuliiawork22",
+      "email": "yuliia+districtadmin2@breakoutedu.com",
+      "role_id": 4,
+      "type": "school",
+      "is_district": 2,
+      "district_name": "YuliiaDistrict2"
+    }
+  ],
+  "students": [
+    {
+      "id": 1744213,
+      "username": "ystudent1",
+      "password": "yw22",
+      "firstname": "Student",
+      "lastName": "B"
+    },
+    {
+      "id": 1744212,
+      "username": "ystudent2",
+      "password": "yw22",
+      "firstname": "ystudent1",
+      "lastName": "r"
+    }
+  ],
+  "classes": [
+    {
+      "id": 157815,
+      "title": "Math trying testing t2dd sdlijasldj",
+      "code": "37XJD9",
+      "user_id": 860624
+    },
+    {
+      "id": 1744212,
+      "username": "ystudent2",
+      "password": "yw22",
+      "firstname": "ystudent1",
+      "lastName": "r"
+    }
+  ],
+  "student_classes": [
+    {
+      "class_id": 157808,
+      "student_id": 1744213
+    },
+    {
+      "class_id": 157802,
+      "student_id": 1744212
+    },
+    {
+      "class_id": 157808,
+      "student_id": 1744212
+    },
+    {
+      "class_id": 157809,
+      "student_id": 1744212
+    },
+    {
+      "class_id": 157810,
+      "student_id": 1744212
+    },
+    {
+      "class_id": 157815,
+      "student_id": 1744212
+    },
+    {
+      "class_id": 157818,
+      "student_id": 1744212
+    }
+  ]
+}
