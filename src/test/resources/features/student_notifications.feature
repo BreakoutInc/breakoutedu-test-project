@@ -16,12 +16,13 @@ Feature: Student notifications
     When student clicks Notifications
     Then verifies new notifications is displayed
 
-
+      @done
   Scenario: Student can close Notifications
     Given student is on the Home Page
     When student clicks Notifications
     And click on close notifications icon
     Then verifies notifications was closed
+
 
   Scenario: Student can open Notification about game revision
     Given student is on the Home Page

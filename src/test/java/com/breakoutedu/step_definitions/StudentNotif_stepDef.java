@@ -3,6 +3,7 @@ package com.breakoutedu.step_definitions;
 import static com.breakoutedu.utility.BrowserUtil.*;
 
 import com.breakoutedu.pages.StudentHomePage;
+import static com.breakoutedu.utility.BrowserUtil.*;
 import com.breakoutedu.utility.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -14,6 +15,7 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class StudentNotif_stepDef {
 StudentHomePage homePage = new StudentHomePage();
+
 
 
     @And("scrolls notifications down")
@@ -41,7 +43,8 @@ StudentHomePage homePage = new StudentHomePage();
 
     @Then("verifies notifications was closed")
     public void verifiesNotificationsWasClosed() {
-        assertFalse(homePage.notificationTitle.isDisplayed());
+
+        assertTrue( isNotDisplayed(homePage.notificationTitle) );
     }
 
     @And("clicks on notification about game revision")

@@ -215,6 +215,15 @@ public class BrowserUtil {
         return true;
     }
 
+    public static boolean isNotDisplayed(WebElement element) {
+        try {
+            element.isDisplayed();
+            return false;
+        } catch (NoSuchElementException e) {
+            return true;
+        }
+    }
+
 
 }
 
