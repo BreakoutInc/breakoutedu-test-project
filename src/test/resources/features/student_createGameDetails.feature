@@ -71,7 +71,7 @@ Feature: Student able to select various elements while creating game
     Then verifies Please provide lock clue text alert is displayed
 
 
-   Scenario: Student able to switch types of Multi Lock games
+   Scenario: Student able to switch types of Multi Lock game
     Given student is on the Home Page
     And selects Non-Sequential game type
     And provides valid game title and clicks next

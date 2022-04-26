@@ -26,6 +26,12 @@ public class StudentPlayGamePage {
     @FindBy(xpath = "//img[contains (@src, 'endscreens')]")
     public WebElement imageYouBrokeOut;
 
+    @FindBy(xpath = "//div[contains (@class, 'game-play-wrapper')]")
+    public WebElement elmWrapperOfOpenedGameScreen;     //displayed when game is opened
+
+    @FindBy(xpath = "//a[contains (@class, 'close')][contains (@href, '/game/play')]")
+    public WebElement closeGameIcon;
+
 
     public void enterGameClueCombination(String combination){
         for (int i = 0; i < combination.length(); i++) {

@@ -1,7 +1,7 @@
-@regression @done
+
 Feature: Teacher login
 
-  @smoke
+  @done
   Scenario Outline: User login successfully
     Given user is on Login Page
     When user provides valid "<email>" and "<password>"
@@ -16,6 +16,7 @@ Feature: Teacher login
       |yuliia+districtadmin@breakoutedu.com|yuliiawork22|
       |yuliia+districtadmin2@breakoutedu.com|yuliiawork22|
 
+    @done
   Scenario: User tries to login with invalid credentials
     Given user is on Login Page
     When user provides invalid email and password

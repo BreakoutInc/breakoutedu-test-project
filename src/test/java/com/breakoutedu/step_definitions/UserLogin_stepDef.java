@@ -38,7 +38,6 @@ public class UserLogin_stepDef {
     public void verifiesLoggedInSuccessfully() {
         waitForPageToLoad(4);
         assertTrue(userHomePage.myAccountIcon.isDisplayed());
-        loginPage.userLogOut();
     }
 
     @When("user provides invalid email and password")
@@ -50,7 +49,8 @@ public class UserLogin_stepDef {
 
     @Then("verifies Invalid credentials window is displayed")
     public void verifiesInvalidCredentialsWindowIsDisplayed() {
-        assertTrue(loginPage.teacherErrorMsg.isDisplayed());
-        loginPage.userLogOut();
+        waitForPageToLoad(3);
+       assertTrue(loginPage.teacherErrorMsg.isDisplayed());
+
     }
 }

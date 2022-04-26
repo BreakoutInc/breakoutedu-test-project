@@ -24,11 +24,38 @@ public StudentHomePage(){
   @FindBy(xpath = "//span[contains (text(), 'My Games')]")
   public WebElement myGamesModule;
 
-  @FindBy(xpath = "//a[text()='Notifications']")
+  @FindBy(xpath = "//span[contains (text(), 'Home')]")
+  public WebElement homeModule;
+
+  @FindBy(xpath = "//span[contains (text(), 'Notifications')]")
   public WebElement notificationsModule;
+
+  @FindBy(xpath = "//a[contains (@href, '/game/play/new-assignment')]")
+  public WebElement gameNewAssignment;
 
   @FindBy(xpath = "//div[@id='lockOfDayCard']//img[contains (@src, 'playnow')]")
   public WebElement lotdPlayBanner;
+
+  @FindBy(xpath = "//*[@id='full_avatar']")
+  public WebElement avatarIcon;
+
+
+  //----------Notifications-------------
+
+  @FindBy(xpath = "//span[contains (text(), 'assigned a game')]")
+  public WebElement notificAssignedGame;
+
+  @FindBy(xpath = "//ul[contains (@class, 'scroll')]")
+  public WebElement notificationsElement;
+
+  @FindBy(xpath = "//img[contains (@src, '/exit')]")
+  public WebElement closeNotificatonsIcon;
+
+  @FindBy(xpath = "//p[text()='Notifications']")
+  public WebElement notificationTitle;  //to verify it's opened/closed
+
+
+
 
 
 
