@@ -99,8 +99,6 @@ public class BELoginPage {
     }
 
     public void studentLoginWthBE(String username, String password ) {
-        // beLoginPage.logInBtn.click();
-        // beLoginPage.studentBtn.click();
         this.logInWithBE_Btn.click();
         BrowserUtil.waitForClickability(this.studentUsernameInput,3);
         this.studentUsernameInput.sendKeys(username);
