@@ -67,7 +67,7 @@ public class StudentSignup_stepDef {
     }
 
 
-    @Then("verifies account was created")
+    @Then("verifies Student Home Page in displayed")
     public void verifiesAccountWasCreated() {
        assertTrue(homePage.homeModule.isDisplayed());
     }

@@ -12,6 +12,9 @@ public StudentHomePage(){
 }
 
 
+// Home page also includes Notifications
+
+
   @FindBy(xpath = "//a[text()='Change Password']")
   public WebElement changePswdBtn;
 
@@ -53,6 +56,9 @@ public StudentHomePage(){
 
   @FindBy(xpath = "//p[text()='Notifications']")
   public WebElement notificationTitle;  //to verify it's opened/closed
+
+  @FindBy(xpath = "//span[contains (text(), 'revise your game')]")
+  public WebElement notificationToReviseGame;
 
 
 
