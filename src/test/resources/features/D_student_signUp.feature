@@ -11,7 +11,7 @@ Feature: Student SignUp with BE
       And fills up personal info and clicks next
       And provides password and psw confirmation and next
       And clicks Create account button
-      Then verifies account was created
+      Then verifies Student Home Page in displayed
 
     @done
   Scenario: Student tries to create account with invalid class code

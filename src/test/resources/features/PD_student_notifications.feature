@@ -23,7 +23,7 @@ Feature: Student notifications
     And click on close notifications icon
     Then verifies notifications was closed
 
-
+    @on_hold  ##until new teacher design
   Scenario: Student can open Notification about game revision
     Given student is on the Home Page
     When student clicks Notifications

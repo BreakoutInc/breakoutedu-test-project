@@ -2,6 +2,7 @@ package com.breakoutedu.step_definitions;
 
 import static com.breakoutedu.utility.BrowserUtil.*;
 
+import com.breakoutedu.pages.StudentGameDetailPage;
 import com.breakoutedu.pages.StudentHomePage;
 import static com.breakoutedu.utility.BrowserUtil.*;
 import com.breakoutedu.utility.Driver;
@@ -15,6 +16,7 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class StudentNotif_stepDef {
 StudentHomePage homePage = new StudentHomePage();
+StudentGameDetailPage gameDetailPage = new StudentGameDetailPage();
 
 
 
@@ -49,9 +51,12 @@ StudentHomePage homePage = new StudentHomePage();
 
     @And("clicks on notification about game revision")
     public void clicksOnNotificationAboutGameRevision() {
+        homePage.notificationToReviseGame.click();
     }
 
     @Then("verifies the Game Details page for that game is opened")
     public void verifiesTheGameDetailsPageForThatGameIsOpened() {
+        waitForPageToLoad(3);
+     assertTrue(gameDetailPage.gameDetailsTitle.isDisplayed());
     }
 }
