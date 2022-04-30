@@ -16,7 +16,7 @@
         <profile>
             <id>teamcity</id>
             <activation>
-<!--                    <activeByDefault>true</activeByDefault>-->
+                <activeByDefault>true</activeByDefault>
             </activation>
                 <properties>
                     <env>teamcity</env>
