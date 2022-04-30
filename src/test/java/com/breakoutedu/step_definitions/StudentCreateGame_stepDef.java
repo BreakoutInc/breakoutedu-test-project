@@ -1,9 +1,8 @@
 package com.breakoutedu.step_definitions;
 
-import com.breakoutedu.pages.BELoginPage;
+import com.breakoutedu.pages.*;
+
 import static com.breakoutedu.utility.ConfigReader.*;
-import com.breakoutedu.pages.StudentHomePage;
-import com.breakoutedu.pages.StudentMyGamesPage;
 
 import static com.breakoutedu.utility.BrowserUtil.*;
 
@@ -22,6 +21,8 @@ public class StudentCreateGame_stepDef {
     Faker faker = new Faker();
     StudentHomePage homePage = new StudentHomePage();
     StudentMyGamesPage gamesPage = new StudentMyGamesPage();
+    StudentPlayGamePage playGamePage = new StudentPlayGamePage();
+    StudentCreatesGamePage createGamesPage = new StudentCreatesGamePage();
 
 
 
@@ -30,7 +31,7 @@ public class StudentCreateGame_stepDef {
     @Given("student is on the Home Page")
     public void studentIsOnTheHomePage() {
         goTo("student");
-        loginPage.studentLoginWthBE(read("student1"), read("stud.psw"));
+        loginPage.studentLoginWthBE(read("student2"), read("stud.psw"));
     }
 
     @When("student clicks My Games module")
@@ -48,89 +49,89 @@ public class StudentCreateGame_stepDef {
 
     @And("selects class and clicks create game button")
     public void selectsClassAndClicksCreateGame() {
-        gamesPage.listOfClasses.get(0).click();
-        gamesPage.createGameBtn.click();
+        createGamesPage.listOfClasses.get(0).click();
+        createGamesPage.createGameBtn.click();
 
     }
 
     @And("selects game type")
     public void selects() {
-        gamesPage.selectGameCategory("Single lock").click();
+        createGamesPage.selectGameCategory("Single lock").click();
     }
 
     @And("provides valid game title and clicks next")
     public void providesValidGameTitleAndClicksNext() {
-        gamesPage.titleInput.sendKeys(gameTitle);
-        gamesPage.nextBtn.click();
+        createGamesPage.titleInput.sendKeys(gameTitle);
+        createGamesPage.nextBtn.click();
     }
 
     @And("inputs Lock Story text")
     public void inputsLockStoryText() {
-        gamesPage.lockStoryInputSingleLock.sendKeys(faker.chuckNorris().fact());
+        createGamesPage.lockStoryInputSingleLock.sendKeys(faker.chuckNorris().fact());
     }
 
     @And("selects Text lock clue")
     public void selectsTextLockClue() {
-        scrollToElement(gamesPage.textLockClueBtn);
-        clickWithJS(gamesPage.textLockClueBtn);
+        scrollToElement(createGamesPage.textLockClueBtn);
+        clickWithJS(createGamesPage.textLockClueBtn);
     }
 
     @And("inputs lock clue text")
     public void inputsLockClueText() {
-        gamesPage.textLockInput.sendKeys(faker.harryPotter().quote());
+        createGamesPage.textLockInput.sendKeys(faker.harryPotter().quote());
         waitFor(2);
     }
 
     @And("selects lock clue combination")
     public void selectsLockClueCombination() {
-        gamesPage.selectLetterForLockClue("TEST");
+        createGamesPage.selectLetterForLockClue("TEST");
     }
 
     @And("clicks Save as draft")
     public void clicksSaveAsDraft() {
-        scrollToElement(gamesPage.saveAsDraftBtn);
-        clickWithJS(gamesPage.saveAsDraftBtn);
+        scrollToElement(createGamesPage.saveAsDraftBtn);
+        clickWithJS(createGamesPage.saveAsDraftBtn);
     }
 
     @Then("verifies the game has been created")
     public void verifiesTheGameHasBeenCreated() {
         homePage.myGamesModule.click();
         waitForPageToLoad(5);
-        Assert.assertTrue(gamesPage.gameIsPresentInCreatedGamesColumn(gameTitle));
+        Assert.assertTrue(createGamesPage.gameIsPresentInCreatedGamesColumn(gameTitle));
 
     }
 
     //--------------MULTILOCK GAME------------------------
     @And("selects {string}")
     public void selects(String gameType) {
-        gamesPage.selectGameCategory(gameType).click();
+        createGamesPage.selectGameCategory(gameType).click();
     }
 
 
     @And("creates color lock")
     public void createsLock() {
-        gamesPage.createLockForMultlGame("color", "text", "RXQB");
+        createGamesPage.createLockForMultlGame("color", "text", "RXQB");
     }
 
     @And("clicks Add Another Lock button")
     public void clicksAddAnotherLockButton() {
-        gamesPage.addAnotherLockBtn.click();
+        createGamesPage.addAnotherLockBtn.click();
     }
 
     @And("creates directional lock")
     public void createsDirectLock() {
-        gamesPage.createLockForMultlGame("directional", "text", "UUDR");
+        createGamesPage.createLockForMultlGame("directional", "text", "UUDR");
     }
 
     @And("clicks Add New Lock button")
     public void clicksAddNewLockButton() {
-        clickWithJS(gamesPage.addNewLock);
+        clickWithJS(createGamesPage.addNewLock);
     }
 
 
     @And("inputs Lock Story text for multi-lock")
     public void inputsLockStoryTextForMultiLock() {
-        gamesPage.lockStoryInputMultiL.sendKeys(faker.chuckNorris().fact());
+        createGamesPage.lockStoryInputMultiL.sendKeys(faker.chuckNorris().fact());
     }
 
 }

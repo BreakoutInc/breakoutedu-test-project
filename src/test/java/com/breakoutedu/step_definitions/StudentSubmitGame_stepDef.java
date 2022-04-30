@@ -1,7 +1,9 @@
 package com.breakoutedu.step_definitions;
 
+import com.breakoutedu.pages.StudentCreatesGamePage;
 import com.breakoutedu.pages.StudentHomePage;
 import com.breakoutedu.pages.StudentMyGamesPage;
+import static com.breakoutedu.utility.BrowserUtil.*;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -12,6 +14,8 @@ public class StudentSubmitGame_stepDef {
     Faker faker = new Faker();
     StudentHomePage homePage = new StudentHomePage();
     StudentMyGamesPage gamesPage = new StudentMyGamesPage();
+    StudentCreatesGamePage createsGamePage = new StudentCreatesGamePage();
+
 
     //----
     int initAmountOfGames = gamesPage.submittedGamesList.size();
@@ -34,12 +38,13 @@ public class StudentSubmitGame_stepDef {
 
     @Then("verifies the game was submitted")
     public void verifiesTheGameWasSubmitted() {
+        waitFor(2);
         int newAmountOfGames = gamesPage.submittedGamesList.size();
         assertEquals(initAmountOfGames + 1, newAmountOfGames);
     }
 
     @Then("verifies message Error : Field is required is displayed")
     public void verifiesMessageErrorFieldIsRequiredIsDisplayed() {
-       assertTrue( gamesPage.submitWthNoCommentError.isDisplayed() );
+       assertTrue( createsGamePage.submitWthNoCommentError.isDisplayed() );
     }
 }

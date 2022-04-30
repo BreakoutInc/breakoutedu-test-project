@@ -46,11 +46,6 @@ public class StudentLogin_stepDef {
         loginPage.studentLogInBtn.click();
     }
 
-    @Then("verifies Student Home Page in displayed")
-    public void verifiesStudentHomePageInDisplayed() {
-        waitForPageToLoad(4);
-        assertEquals("Breakout EDU |", getDriver().getTitle());
-    }
 
     @And("enters invalid email and password")
     public void entersInvalidEmailAndPassword() {

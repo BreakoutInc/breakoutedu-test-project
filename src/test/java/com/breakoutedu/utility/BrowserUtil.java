@@ -132,8 +132,10 @@ public class BrowserUtil {
     public static void verifyElementDisplayed(WebElement element) {
         try {
             assertTrue("Element not visible: "+element, element.isDisplayed());
+            System.out.println("assert true is right");
         } catch (NoSuchElementException e) {
             Assert.fail("Element not found: " + element);
+            System.out.println("element not found");
 
         }
     }
@@ -211,6 +213,15 @@ public class BrowserUtil {
             return false;
         }
         return true;
+    }
+
+    public static boolean isNotDisplayed(WebElement element) {
+        try {
+            element.isDisplayed();
+            return false;
+        } catch (NoSuchElementException e) {
+            return true;
+        }
     }
 
 
