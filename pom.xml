@@ -14,6 +14,16 @@
     </properties>
     <profiles>
         <profile>
+            <id>teamcity</id>
+            <activation>
+<!--                    <activeByDefault>true</activeByDefault>-->
+            </activation>
+                <properties>
+                    <env>teamcity</env>
+                </properties>
+
+        </profile>
+        <profile>
             <id>stag</id>
             <activation>
 <!--                    <activeByDefault>true</activeByDefault>-->
