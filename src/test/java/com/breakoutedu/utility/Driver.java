@@ -15,22 +15,20 @@ public class Driver {
         String browserName = ConfigReader.read("browser") ;
         if(obj == null){
             obj = getDriverBase(browserName);
-        }else{
-            return obj;
         }
+        return obj;
     }
 
     public static WebDriver getDriver2(){
         String browserName = ConfigReader.read("browser2") ;
         if(obj2 == null){
             obj2 = getDriverBase(browserName);
-        }else{
-            return obj2;
         }
+        return obj2;
     }
 
     private static WebDriver getDriverBase(String browserName){
-        Webdriver newDriver;
+        WebDriver newDriver = null;
         // according to browser type set up driver correctly
         switch (browserName ){
             case "chrome" :
