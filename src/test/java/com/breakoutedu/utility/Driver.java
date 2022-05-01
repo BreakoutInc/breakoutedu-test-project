@@ -52,6 +52,7 @@ public class Driver {
                 chromeOptions.addArguments("--no-sandbox");
                 chromeOptions.addArguments("--headless");
                 chromeOptions.addArguments("disable-gpu");
+                chromeOptions.addArguments("--disable-dev-shm-usage");
                 newDriver = new ChromeDriver(chromeOptions);
                 break;
             // other browsers omitted
