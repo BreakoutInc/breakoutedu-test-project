@@ -46,7 +46,7 @@ public class Driver {
                 WebDriverManager.safaridriver().setup();
                 newDriver = new SafariDriver();
                 break;
-            case "headlessChrome":
+            case "headless_chrome":
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--no-sandbox");
