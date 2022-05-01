@@ -2,6 +2,7 @@ package com.breakoutedu.utility;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -14,77 +15,53 @@ public class Driver {
     private Driver(){ }
 
     public static WebDriver getDriver(){
-        // read the browser type you want to launch from properties file
         String browserName = ConfigReader.read("browser") ;
-
         if(obj == null){
-
-            // according to browser type set up driver correctly
-            switch (browserName ){
-                case "chrome" :
-                    WebDriverManager.chromedriver().setup();
-                    obj = new ChromeDriver();
-                    break;
-                case "firefox" :
-                    WebDriverManager.firefoxdriver().setup();
-                    obj = new FirefoxDriver();
-                    break;
-                case "safari":
-                    WebDriverManager.safaridriver().setup();
-                    obj = new SafariDriver();
-                    break;
-                // other browsers omitted
-                default:
-                    obj = null ;
-                    System.out.println("UNKNOWN BROWSER TYPE!!! " + browserName);
-            }
-            return obj ;
-
-
-
-        }else{
-            return obj ;
-
+            obj = getDriverBase(browserName);
         }
-
+        return obj;
     }
 
     public static WebDriver getDriver2(){
-        // read the browser type you want to launch from properties file
         String browserName = ConfigReader.read("browser2") ;
-
         if(obj2 == null){
-
-            // according to browser type set up driver correctly
-            switch (browserName ){
-                case "chrome" :
-                    WebDriverManager.chromedriver().setup();
-                    obj2 = new ChromeDriver();
-                    break;
-                case "firefox" :
-                    WebDriverManager.firefoxdriver().setup();
-                    obj2 = new FirefoxDriver();
-                    break;
-                case "safari":
-                    WebDriverManager.safaridriver().setup();
-                    obj2 = new SafariDriver();
-                    break;
-                // other browsers omitted
-                default:
-                    obj2 = null ;
-                    System.out.println("UNKNOWN BROWSER TYPE!!! " + browserName);
-            }
-            return obj2 ;
-
-
-
-        }else{
-            return obj2 ;
-
+            obj2 = getDriverBase(browserName);
         }
-
+        return obj2;
     }
 
+    private static WebDriver getDriverBase(String browserName){
+        WebDriver newDriver = null;
+        // according to browser type set up driver correctly
+        switch (browserName ){
+            case "chrome" :
+                WebDriverManager.chromedriver().setup();
+                newDriver = new ChromeDriver();
+                break;
+            case "firefox" :
+                WebDriverManager.firefoxdriver().setup();
+                newDriver = new FirefoxDriver();
+                break;
+            case "safari":
+                WebDriverManager.safaridriver().setup();
+                newDriver = new SafariDriver();
+                break;
+            case "headless_chrome":
+                WebDriverManager.chromedriver().setup();
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--no-sandbox");
+                chromeOptions.addArguments("--headless");
+                chromeOptions.addArguments("disable-gpu");
+                chromeOptions.addArguments("--disable-dev-shm-usage");
+                newDriver = new ChromeDriver(chromeOptions);
+                break;
+            // other browsers omitted
+            default:
+                newDriver = null ;
+                System.out.println("UNKNOWN BROWSER TYPE!!! " + browserName);
+        }
+        return newDriver;
+    }
 
     public static void closeBrowser(){
         if(obj != null ){
@@ -92,6 +69,10 @@ public class Driver {
             // when ask for it again , it gives us not quited fresh driver
             obj = null ;
         }
-
+        if(obj2 != null ){
+            obj2.quit();
+            // when ask for it again , it gives us not quited fresh driver
+            obj2 = null ;
+        }
     }
 }
