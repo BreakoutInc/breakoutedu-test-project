@@ -148,20 +148,20 @@
       "id": 1744213,
       "username": "ystudent1",
       "password": "yw22",
-      "firstname": "Student",
+      "firstName": "Student",
       "lastName": "B"
     },
     {
       "id": 1744212,
       "username": "ystudent2",
       "password": "yw22",
-      "firstname": "ystudent1",
+      "firstName": "ystudent1",
       "lastName": "r"
     }
   ],
   "classes": [
     {
-      "id": 157815,
+      "id": 157827,
       "title": "Math trying testing t2dd sdlijasldj",
       "code": "37XJD9",
       "user_id": 860624
