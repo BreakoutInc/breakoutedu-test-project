@@ -2,8 +2,10 @@ package com.breakoutedu.utility;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 public class Driver {
 
@@ -37,13 +39,20 @@ public class Driver {
                 newDriver = new ChromeDriver();
                 break;
             case "firefox" :
-                newDriver = WebDriverManager.firefoxdriver().create();
+                WebDriverManager.firefoxdriver().setup();
+                newDriver = new FirefoxDriver();
                 break;
             case "safari":
-                newDriver = WebDriverManager.safaridriver().create();
+                WebDriverManager.safaridriver().setup();
+                newDriver = new SafariDriver();
                 break;
-            case "chromium":
-                newDriver = WebDriverManager.chromiumdriver().create();
+            case "headlessChrome":
+                WebDriverManager.chromedriver().setup();
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--no-sandbox");
+                chromeOptions.addArguments("--headless");
+                chromeOptions.addArguments("disable-gpu");
+                newDriver = new ChromeDriver(chromeOptions);
                 break;
             // other browsers omitted
             default:
