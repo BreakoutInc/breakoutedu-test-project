@@ -3,6 +3,7 @@ package com.breakoutedu.utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Driver {
 
@@ -32,7 +33,8 @@ public class Driver {
         // according to browser type set up driver correctly
         switch (browserName ){
             case "chrome" :
-                newDriver = WebDriverManager.chromedriver().create();
+                WebDriverManager.chromedriver().setup();
+                newDriver = new ChromeDriver();
                 break;
             case "firefox" :
                 newDriver = WebDriverManager.firefoxdriver().create();
