@@ -32,6 +32,12 @@ public class StudentPlayGamePage {
     @FindBy(xpath = "//a[contains (@class, 'close')][contains (@href, '/game/play')]")
     public WebElement closeGameIcon;
 
+    @FindBy(xpath = "//p[contains (text(), 'Sorry, there seems to be an issue:')]")
+    public WebElement errorPlayingNoLockGame;
+
+    @FindBy(xpath = "//a[contains (text(), 'Select your first lock to begin.')]")
+    public WebElement select1stLockMsg;
+
 
     public void enterGameClueCombination(String combination){
         for (int i = 0; i < combination.length(); i++) {
