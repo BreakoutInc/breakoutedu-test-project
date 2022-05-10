@@ -131,8 +131,8 @@ public class BrowserUtil {
     //checks if elm is displayed on page
     public static void verifyElementDisplayed(WebElement element) {
         try {
-            assertTrue("Element not visible: "+element, element.isDisplayed());
-            System.out.println("assert true is right");
+            assertTrue("Element is visible: "+element, element.isDisplayed());
+            System.out.println("Element is displayed");
         } catch (NoSuchElementException e) {
             Assert.fail("Element not found: " + element);
             System.out.println("element not found");

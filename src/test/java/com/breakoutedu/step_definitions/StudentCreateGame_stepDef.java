@@ -12,7 +12,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
+import static org.junit.Assert.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -27,6 +27,7 @@ public class StudentCreateGame_stepDef {
 
 
     public String gameTitle = faker.ancient().hero();
+    public String autosaveGameTitle = faker.funnyName().name();
 
     @Given("student is on the Home Page")
     public void studentIsOnTheHomePage() {
@@ -58,7 +59,8 @@ public class StudentCreateGame_stepDef {
 
     @And("selects game type")
     public void selects() {
-        createGamesPage.selectGameCategory("Single lock").click();
+        waitForClickability(createGamesPage.singleLockBtn,5);
+        clickWithJS(createGamesPage.selectGameCategory("Single lock"));
     }
 
     @And("provides valid game title and clicks next")
@@ -99,7 +101,7 @@ public class StudentCreateGame_stepDef {
     public void verifiesTheGameHasBeenCreated() {
         homePage.myGamesModule.click();
         waitForPageToLoad(5);
-        Assert.assertTrue(createGamesPage.gameIsPresentInCreatedGamesColumn(gameTitle));
+        assertTrue(createGamesPage.gameIsPresentInCreatedGamesColumn(gameTitle));
 
     }
 
@@ -138,15 +140,25 @@ public class StudentCreateGame_stepDef {
 
     @And("enables auto save")
     public void enablesAutoSave() {
-
+       clickWithJS(createGamesPage.autosaveBtn);
     }
 
     @And("clicks on a created game with auto save enabled")
     public void clicksOnACreatedGameWithAutoSaveEnabled() {
+        scrollToElement(createGamesPage.gameCreatedByTitle(autosaveGameTitle));
+        createGamesPage.gameCreatedByTitle(autosaveGameTitle).click();
+    }
+
+    @And("provides valid game title for autosave and clicks next")
+    public void providesValidGameTitleForAutosaveAndClicksNext() {
+        createGamesPage.titleInput.sendKeys(autosaveGameTitle);
+        createGamesPage.nextBtn.click();
     }
 
     @Then("verifies game was autosaved successfully")
     public void verifiesGameWasAutosavedSuccessfully() {
+        waitForPageToLoad(5);
+        assertTrue(playGamePage.select1stLockMsg.isDisplayed());
     }
 }
 

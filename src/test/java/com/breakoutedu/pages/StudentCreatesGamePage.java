@@ -124,6 +124,11 @@ public class StudentCreatesGamePage {
     @FindBy(xpath = "//div[@class='alert__icon']")
     public WebElement alertForNoLockClueText;
 
+    @FindBy(xpath = "//div[@class='checkylbl']")
+    public WebElement autosaveBtn;
+
+
+
     //////////////METHODS//////////////////////////////
 
     public WebElement selectLockTypeForMultilockGame(String lockType){
@@ -157,7 +162,7 @@ public class StudentCreatesGamePage {
             case "Sequential game":
                 return this.seqGameBtn;
             default:
-                System.out.println("Wrong game type provided");
+                System.out.println("Wrong game type provided "+categoryName);
                 break;
         }
         return null;
@@ -258,6 +263,10 @@ public class StudentCreatesGamePage {
 
     public boolean gameIsPresentInCreatedGamesColumn(String gameName){
         return getDriver().findElement(By.xpath("//p[text()='Created']/..//p[text()='"+gameName+"']")).isDisplayed();
+    }
+
+    public WebElement gameCreatedByTitle(String gameTitle){
+        return getDriver().findElement(By.xpath("//p[contains (text(), '"+gameTitle+"')]"));
     }
 
     public String getGameNameFromCreatedColumn(){
