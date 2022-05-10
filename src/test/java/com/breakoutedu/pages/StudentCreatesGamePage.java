@@ -31,7 +31,7 @@ public class StudentCreatesGamePage {
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement createGameBtn;
 
-    @FindBy(xpath = "//div[contains (@class, 'radiobutton')]//input/..")
+    @FindBy(xpath = "//input[@type='radio']")
     public List<WebElement> listOfClasses;
 
     @FindBy(xpath = "//*[contains (text(), 'Single Lock')]/..//li")

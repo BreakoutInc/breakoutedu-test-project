@@ -24,12 +24,5 @@ public class Test {
 //        StudentHomePage homePage = new StudentHomePage();
 //        StudentMyGamesPage gamesPage = new StudentMyGamesPage();
 
-
-        //student game play
-      goTo("student");
-//        loginPage.studentLoginWthBE(read("student1"),read("stud.psw"));
-
-     // Driver.getDriver().quit();
-      //  System.out.println(read("file.name"));
     }
 }

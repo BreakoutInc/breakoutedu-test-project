@@ -9,7 +9,7 @@ Feature: Student auto save game
    And selects game type
    And provides valid game title and clicks next
 
-
+@teamcity_debug
   Scenario: Student can auto-save game - Single lock
     And enables auto save
     And inputs Lock Story text

@@ -37,7 +37,8 @@ public class StudentCreateGame_stepDef {
     @When("student clicks My Games module")
     public void studentClicksCreateAGame() {
         waitForPageToLoad(5);
-        homePage.myGamesModule.click();
+    //    homePage.myGamesModule.click();
+        clickWithJS(homePage.myGamesModule);
     }
 
     @And("clicks Create a Game")
@@ -49,6 +50,7 @@ public class StudentCreateGame_stepDef {
 
     @And("selects class and clicks create game button")
     public void selectsClassAndClicksCreateGame() {
+        waitForClickability(createGamesPage.listOfClasses.get(0),5);
         createGamesPage.listOfClasses.get(0).click();
         createGamesPage.createGameBtn.click();
 
@@ -134,6 +136,18 @@ public class StudentCreateGame_stepDef {
         createGamesPage.lockStoryInputMultiL.sendKeys(faker.chuckNorris().fact());
     }
 
+    @And("enables auto save")
+    public void enablesAutoSave() {
+
+    }
+
+    @And("clicks on a created game with auto save enabled")
+    public void clicksOnACreatedGameWithAutoSaveEnabled() {
+    }
+
+    @Then("verifies game was autosaved successfully")
+    public void verifiesGameWasAutosavedSuccessfully() {
+    }
 }
 
 

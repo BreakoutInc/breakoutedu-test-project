@@ -1,6 +1,6 @@
 Feature: Student submit game
 
-  @done
+  @teamcity
   Scenario: Student can submit game successfully (first game from Created column )
     Given student is on the Home Page
     When student clicks My Games module
@@ -9,7 +9,7 @@ Feature: Student submit game
     And clicks Submit button
     Then verifies the game was submitted
 
-  @done
+  @teamcity
   Scenario: Student submits game without comment
     Given student is on the Home Page
     When student clicks My Games module
