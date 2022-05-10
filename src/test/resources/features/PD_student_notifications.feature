@@ -16,7 +16,7 @@ Feature: Student notifications
     When student clicks Notifications
     Then verifies new notifications is displayed
 
-      @done
+      @teamcity
   Scenario: Student can close Notifications
     Given student is on the Home Page
     When student clicks Notifications

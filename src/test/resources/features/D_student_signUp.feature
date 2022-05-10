@@ -5,7 +5,7 @@ Feature: Student SignUp with BE
     And clicks on signup here
     And clicks on Signup With Breakout EDU
 
-    @done
+    @teamcity
   Scenario: Student creates account successfully
       And types class code and clicks Next
       And fills up personal info and clicks next
@@ -13,18 +13,18 @@ Feature: Student SignUp with BE
       And clicks Create account button
       Then verifies Student Home Page in displayed
 
-    @done
+    @teamcity
   Scenario: Student tries to create account with invalid class code
     And provides invalid class code
     Then verifies This class code is invalid message is displayed
 
-   @done
+   @teamcity
   Scenario: Student tries to create account with invalid username(too short)
     And types class code and clicks Next
     And provides invalid username and clicks next
     Then verifies Username must be between six and ten characters message is displayed
 
-    @done
+    @teamcity
   Scenario: Student tries to create an account with not match password
     And types class code and clicks Next
     And fills up personal info and clicks next
