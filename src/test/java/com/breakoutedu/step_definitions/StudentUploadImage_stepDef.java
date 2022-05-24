@@ -1,10 +1,10 @@
 package com.breakoutedu.step_definitions;
 
-import com.breakoutedu.pages.StudentCreatesGamePage;
-import com.breakoutedu.pages.StudentMyGamesPage;
+import com.breakoutedu.pages.student.StudentCreatesGamePage;
+import com.breakoutedu.pages.student.StudentMyGamesPage;
 import static com.breakoutedu.utility.ConfigReader.*;
 
-import com.breakoutedu.pages.StudentPlayGamePage;
+import com.breakoutedu.pages.student.StudentPlayGamePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import static com.breakoutedu.utility.BrowserUtil.*;

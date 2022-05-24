@@ -1,7 +1,7 @@
 package com.breakoutedu.step_definitions;
 
-import com.breakoutedu.pages.StudentHomePage;
-import com.breakoutedu.pages.StudentSignUpPage;
+import com.breakoutedu.pages.student.StudentHomePage;
+import com.breakoutedu.pages.student.StudentSignUpPage;
 import static com.breakoutedu.utility.ConfigReader.*;
 
 import com.breakoutedu.utility.Driver;
@@ -9,7 +9,6 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.Alert;
 
 import static org.junit.Assert.*;
 import static com.breakoutedu.utility.BrowserUtil.*;

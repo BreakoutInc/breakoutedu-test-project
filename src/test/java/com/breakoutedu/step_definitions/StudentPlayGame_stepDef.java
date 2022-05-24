@@ -5,16 +5,18 @@ import com.breakoutedu.pages.*;
 import static com.breakoutedu.utility.BrowserUtil.*;
 
 import static com.breakoutedu.utility.Driver.*;
-import io.cucumber.java.Before;
+
+import com.breakoutedu.pages.student.StudentHomePage;
+import com.breakoutedu.pages.student.StudentMyGamesPage;
+import com.breakoutedu.pages.student.StudentPlayGamePage;
+import com.breakoutedu.pages.teacher.TeacherLOTDPage;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import static com.breakoutedu.utility.ConfigReader.read;
 import static org.junit.Assert.*;
 
-import org.junit.Test;
 import org.openqa.selenium.WebElement;
 
 import java.util.Iterator;
