@@ -1,4 +1,4 @@
-package com.breakoutedu.pages;
+package com.breakoutedu.pages.userAdmin;
 
 import com.breakoutedu.utility.Driver;
 import org.openqa.selenium.By;

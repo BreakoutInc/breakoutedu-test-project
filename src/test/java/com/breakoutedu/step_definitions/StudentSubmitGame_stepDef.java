@@ -1,8 +1,8 @@
 package com.breakoutedu.step_definitions;
 
-import com.breakoutedu.pages.StudentCreatesGamePage;
-import com.breakoutedu.pages.StudentHomePage;
-import com.breakoutedu.pages.StudentMyGamesPage;
+import com.breakoutedu.pages.student.StudentCreatesGamePage;
+import com.breakoutedu.pages.student.StudentHomePage;
+import com.breakoutedu.pages.student.StudentMyGamesPage;
 import static com.breakoutedu.utility.BrowserUtil.*;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;

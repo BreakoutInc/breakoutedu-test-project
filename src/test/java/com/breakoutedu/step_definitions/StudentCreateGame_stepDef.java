@@ -6,6 +6,10 @@ import static com.breakoutedu.utility.ConfigReader.*;
 
 import static com.breakoutedu.utility.BrowserUtil.*;
 
+import com.breakoutedu.pages.student.StudentCreatesGamePage;
+import com.breakoutedu.pages.student.StudentHomePage;
+import com.breakoutedu.pages.student.StudentMyGamesPage;
+import com.breakoutedu.pages.student.StudentPlayGamePage;
 import com.breakoutedu.utility.Driver;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;

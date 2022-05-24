@@ -1,9 +1,11 @@
-package com.breakoutedu.pages;
+package com.breakoutedu.pages.teacher;
 
 import static com.breakoutedu.utility.BrowserUtil.*;
 import static com.breakoutedu.utility.Driver.*;
 
 import static com.breakoutedu.utility.ConfigReader.*;
+
+import com.breakoutedu.pages.BELoginPage;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
