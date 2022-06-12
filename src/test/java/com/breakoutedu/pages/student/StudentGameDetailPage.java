@@ -1,4 +1,4 @@
-package com.breakoutedu.pages;
+package com.breakoutedu.pages.student;
 
 import com.breakoutedu.utility.Driver;
 import org.openqa.selenium.WebElement;

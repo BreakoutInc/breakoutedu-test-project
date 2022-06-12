@@ -2,17 +2,12 @@ package com.breakoutedu.step_definitions;
 
 import static com.breakoutedu.utility.BrowserUtil.*;
 
-import com.breakoutedu.pages.StudentGameDetailPage;
-import com.breakoutedu.pages.StudentHomePage;
-import static com.breakoutedu.utility.BrowserUtil.*;
-import com.breakoutedu.utility.Driver;
+import com.breakoutedu.pages.student.StudentGameDetailPage;
+import com.breakoutedu.pages.student.StudentHomePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import static org.junit.Assert.*;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class StudentNotif_stepDef {
 StudentHomePage homePage = new StudentHomePage();

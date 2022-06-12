@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
                 "me.jvt.cucumber.report.PrettyReports:target"  // fancy report
         },
         dryRun = false,
-        tags = "@teamcity_debug"
+        tags = "@teamcity"
 )
 public class TestRunner {
 }

@@ -1,7 +1,7 @@
 package com.breakoutedu.step_definitions;
 
 import io.cucumber.java.en.And;
-import com.breakoutedu.pages.StudentMyGamesPage;
+import com.breakoutedu.pages.student.StudentMyGamesPage;
 import static com.breakoutedu.utility.BrowserUtil.*;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

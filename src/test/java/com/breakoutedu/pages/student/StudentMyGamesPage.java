@@ -1,4 +1,4 @@
-package com.breakoutedu.pages;
+package com.breakoutedu.pages.student;
 
 import static com.breakoutedu.utility.BrowserUtil.*;
 import static com.breakoutedu.utility.Driver.*;

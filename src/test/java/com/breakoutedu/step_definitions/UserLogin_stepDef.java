@@ -1,8 +1,8 @@
 package com.breakoutedu.step_definitions;
 
 import com.breakoutedu.pages.BELoginPage;
-import com.breakoutedu.pages.TeacherHomePage;
 import com.breakoutedu.utility.Driver;
+import com.breakoutedu.pages.teacher.TeacherHomePage;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
