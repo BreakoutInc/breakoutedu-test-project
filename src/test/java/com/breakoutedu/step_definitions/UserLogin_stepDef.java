@@ -2,11 +2,15 @@ package com.breakoutedu.step_definitions;
 
 import com.breakoutedu.pages.BELoginPage;
 import com.breakoutedu.pages.TeacherHomePage;
+import com.breakoutedu.utility.Driver;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import static com.breakoutedu.utility.BrowserUtil.*;
 import static org.junit.Assert.*;
 
@@ -50,7 +54,8 @@ public class UserLogin_stepDef {
     @Then("verifies Invalid credentials window is displayed")
     public void verifiesInvalidCredentialsWindowIsDisplayed() {
         waitForPageToLoad(3);
+        //Driver.getDriver().navigate().refresh();
+        waitForElement(loginPage.teacherErrorMsg);
        assertTrue(loginPage.teacherErrorMsg.isDisplayed());
-
     }
 }
