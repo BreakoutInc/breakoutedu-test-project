@@ -27,7 +27,6 @@ public class BrowserUtil {
     }
 
 
-
     //wait for given amount of seconds
     public static void waitFor(int seconds){
 
@@ -96,6 +95,12 @@ public class BrowserUtil {
     public static WebElement waitForClickability(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
         return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+
+    public static WebElement waitForElement(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 5);
+        return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
 
