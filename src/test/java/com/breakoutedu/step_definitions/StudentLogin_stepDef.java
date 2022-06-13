@@ -12,8 +12,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.Iterator;
 import java.util.Set;
 
 import static org.junit.Assert.*;

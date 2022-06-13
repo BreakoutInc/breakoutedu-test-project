@@ -25,7 +25,7 @@ public class StudentMyGamesPage {
     @FindBy(xpath = "//*[text()='Create New Game']")
     public WebElement createNewGameBtn;
 
-    @FindBy(xpath = "//p[text()='Submit to Class']/..")
+    @FindBy(xpath = "//*[@id='submitted-games']/div/div[1]/div/div[1]/div/div[2]/button")    //need ID
     public WebElement submitToClassBtn;  //for first game in Created
 
     @FindBy(xpath = "//textarea")

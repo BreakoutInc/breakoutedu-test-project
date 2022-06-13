@@ -50,6 +50,9 @@ public class BELoginPage {
     @FindBy(xpath = "//li[contains (text(), 'Invalid credentials')]")
     public WebElement teacherErrorMsg;
 
+    @FindBy(xpath = "//a[@class='close']")
+    public WebElement closeErrorMsg;
+
 
      //----------student Log In --------------
     @FindBy (xpath = "//a[text()=' Log In With Breakout EDU']")
