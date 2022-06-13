@@ -22,8 +22,8 @@ public class StudentSubmitGame_stepDef {
 
     @And("clicks on Submit to Class button")
     public void clicksOnSubmitToClassButton() {
-        gamesPage.submitToClassBtn.click();
-
+        clickWithJS(gamesPage.submitToClassBtn);
+        //gamesPage.submitToClassBtn.click();
     }
 
     @And("adds comment in popped up window")

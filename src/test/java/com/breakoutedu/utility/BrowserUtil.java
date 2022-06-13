@@ -1,5 +1,6 @@
 package com.breakoutedu.utility;
 
+import com.breakoutedu.pages.BELoginPage;
 import org.junit.Assert;
 
 import static com.breakoutedu.utility.ConfigReader.read;
@@ -97,7 +98,7 @@ public class BrowserUtil {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-
+     //wait or elm is visibe
     public static WebElement waitForElement(WebElement element) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 5);
         return wait.until(ExpectedConditions.visibilityOf(element));
@@ -171,6 +172,20 @@ public class BrowserUtil {
                 }
         }
     }
+
+    public static void clickStaleElement(WebElement element){
+        for(int i=0; i<=2; i++){
+            try{
+                element.click();
+                break;
+            }
+            catch(Exception e){
+                System.out.println((e.getMessage()));
+            }
+        }
+    }
+
+
 
 
     //returns random value from a dropdown list
