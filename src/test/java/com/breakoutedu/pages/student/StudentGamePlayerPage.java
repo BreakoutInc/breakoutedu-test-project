@@ -3,17 +3,16 @@ package com.breakoutedu.pages.student;
 import com.breakoutedu.utility.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
-import static com.breakoutedu.utility.ConfigReader.*;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 
-public class StudentPlayGamePage {
+public class StudentGamePlayerPage {
 
 
-    public StudentPlayGamePage(){
+    public StudentGamePlayerPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 

@@ -14,13 +14,6 @@ public StudentHomePage(){
 
 // Home page also includes Notifications
 
-
-  @FindBy(xpath = "//a[text()='Change Password']")
-  public WebElement changePswdBtn;
-
-  @FindBy(xpath = "//button[text()='Logout']")
-  public WebElement logoutBtn;
-
   @FindBy(xpath = "//a[text()='My Classes']")
   public WebElement myClassesModule;
 

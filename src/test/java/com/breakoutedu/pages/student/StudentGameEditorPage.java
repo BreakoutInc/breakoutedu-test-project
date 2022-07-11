@@ -7,15 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.w3c.dom.html.HTMLInputElement;
 
 import java.util.List;
 import static com.breakoutedu.utility.BrowserUtil.clickWithJS;
 import static com.breakoutedu.utility.BrowserUtil.scrollToElement;
 import static com.breakoutedu.utility.Driver.getDriver;
 
-public class StudentCreatesGamePage {
-    public StudentCreatesGamePage() {
+public class StudentGameEditorPage {
+    public StudentGameEditorPage() {
         PageFactory.initElements(getDriver(), this);
     }
 

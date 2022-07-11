@@ -1,6 +1,6 @@
 Feature: Student able to delete a game
 
-  @teamcity
+  @on_hold
   Scenario: Student delete game
     Given student is on the Home Page
     When student clicks My Games module
