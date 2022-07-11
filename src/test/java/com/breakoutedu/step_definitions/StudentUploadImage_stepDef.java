@@ -1,10 +1,10 @@
 package com.breakoutedu.step_definitions;
 
-import com.breakoutedu.pages.student.StudentCreatesGamePage;
+import com.breakoutedu.pages.student.StudentGameEditorPage;
 import com.breakoutedu.pages.student.StudentMyGamesPage;
 import static com.breakoutedu.utility.ConfigReader.*;
 
-import com.breakoutedu.pages.student.StudentPlayGamePage;
+import com.breakoutedu.pages.student.StudentGamePlayerPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import static com.breakoutedu.utility.BrowserUtil.*;
@@ -12,8 +12,8 @@ import static org.junit.Assert.*;
 
 public class StudentUploadImage_stepDef {
     StudentMyGamesPage gamesPage = new StudentMyGamesPage();
-    StudentPlayGamePage playGamePage = new StudentPlayGamePage();
-    StudentCreatesGamePage createsGamePage = new StudentCreatesGamePage();
+    StudentGamePlayerPage playGamePage = new StudentGamePlayerPage();
+    StudentGameEditorPage createsGamePage = new StudentGameEditorPage();
 
     @And("selects Image lock type")
     public void selectsImageLockType() {

@@ -6,10 +6,10 @@ import static com.breakoutedu.utility.ConfigReader.*;
 
 import static com.breakoutedu.utility.BrowserUtil.*;
 
-import com.breakoutedu.pages.student.StudentCreatesGamePage;
+import com.breakoutedu.pages.student.StudentGameEditorPage;
 import com.breakoutedu.pages.student.StudentHomePage;
 import com.breakoutedu.pages.student.StudentMyGamesPage;
-import com.breakoutedu.pages.student.StudentPlayGamePage;
+import com.breakoutedu.pages.student.StudentGamePlayerPage;
 import com.breakoutedu.utility.Driver;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
@@ -25,8 +25,8 @@ public class StudentCreateGame_stepDef {
     Faker faker = new Faker();
     StudentHomePage homePage = new StudentHomePage();
     StudentMyGamesPage gamesPage = new StudentMyGamesPage();
-    StudentPlayGamePage playGamePage = new StudentPlayGamePage();
-    StudentCreatesGamePage createGamesPage = new StudentCreatesGamePage();
+    StudentGamePlayerPage playGamePage = new StudentGamePlayerPage();
+    StudentGameEditorPage createGamesPage = new StudentGameEditorPage();
 
 
 

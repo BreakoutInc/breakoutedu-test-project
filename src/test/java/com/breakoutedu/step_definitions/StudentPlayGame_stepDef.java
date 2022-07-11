@@ -8,7 +8,7 @@ import static com.breakoutedu.utility.Driver.*;
 
 import com.breakoutedu.pages.student.StudentHomePage;
 import com.breakoutedu.pages.student.StudentMyGamesPage;
-import com.breakoutedu.pages.student.StudentPlayGamePage;
+import com.breakoutedu.pages.student.StudentGamePlayerPage;
 import com.breakoutedu.pages.teacher.TeacherLOTDPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -23,7 +23,7 @@ import java.util.Iterator;
 
 public class StudentPlayGame_stepDef {
     StudentHomePage homePage = new StudentHomePage();
-    StudentPlayGamePage playGamePage = new StudentPlayGamePage();
+    StudentGamePlayerPage playGamePage = new StudentGamePlayerPage();
     TeacherLOTDPage teacherLOTDPage = new TeacherLOTDPage();
     BELoginPage loginPage = new BELoginPage();
     StudentMyGamesPage myGamesPage = new StudentMyGamesPage();

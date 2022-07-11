@@ -15,7 +15,7 @@ Feature: Teacher login
       |yuliia+districtadmin@breakoutedu.com|yuliiawork22|
       |yuliia+districtadmin2@breakoutedu.com|yuliiawork22|
 
-    @teamcity
+    @teamcity @test
   Scenario: User tries to login with invalid credentials
     Given user is on Login Page
     When user provides invalid email and password

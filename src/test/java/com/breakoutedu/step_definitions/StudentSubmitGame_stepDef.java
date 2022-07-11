@@ -1,6 +1,6 @@
 package com.breakoutedu.step_definitions;
 
-import com.breakoutedu.pages.student.StudentCreatesGamePage;
+import com.breakoutedu.pages.student.StudentGameEditorPage;
 import com.breakoutedu.pages.student.StudentHomePage;
 import com.breakoutedu.pages.student.StudentMyGamesPage;
 import static com.breakoutedu.utility.BrowserUtil.*;
@@ -14,7 +14,7 @@ public class StudentSubmitGame_stepDef {
     Faker faker = new Faker();
     StudentHomePage homePage = new StudentHomePage();
     StudentMyGamesPage gamesPage = new StudentMyGamesPage();
-    StudentCreatesGamePage createsGamePage = new StudentCreatesGamePage();
+    StudentGameEditorPage createsGamePage = new StudentGameEditorPage();
 
 
     //----
