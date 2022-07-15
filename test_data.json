@@ -141,6 +141,86 @@
         "expires": "2023-10-01 17:46:42",
         "redeemed_date": "2022-01-09 17:46:42"
       }
+    },
+    {
+      "id": 1001,
+      "firstName": "Teacher",
+      "lastName": "Test 1",
+      "password": "yuliiawork22",
+      "email": "teacher1@testbreakoutedu.com",
+      "role_id": 3,
+      "user_code": {
+        "code": {
+          "id": 8,
+          "code": "008",
+          "isUsed": 1,
+          "bulk_package_id": 0,
+          "valid_for": 365
+        },
+        "id": 7,
+        "expires": "2023-10-01 17:46:42",
+        "redeemed_date": "2022-01-09 17:46:42"
+      }
+    },
+    {
+      "id": 1002,
+      "firstName": "Teacher",
+      "lastName": "Test 2",
+      "password": "yuliiawork22",
+      "email": "teacher2@testbreakoutedu.com",
+      "role_id": 3,
+      "user_code": {
+        "code": {
+          "id": 9,
+          "code": "009",
+          "isUsed": 1,
+          "bulk_package_id": 0,
+          "valid_for": 365
+        },
+        "id": 8,
+        "expires": "2023-10-01 17:46:42",
+        "redeemed_date": "2022-01-09 17:46:42"
+      }
+    },
+    {
+      "id": 1003,
+      "firstName": "Teacher",
+      "lastName": "Test 3",
+      "password": "yuliiawork22",
+      "email": "teacher3@testbreakoutedu.com",
+      "role_id": 3,
+      "user_code": {
+        "code": {
+          "id": 10,
+          "code": "010",
+          "isUsed": 1,
+          "bulk_package_id": 0,
+          "valid_for": 365
+        },
+        "id": 9,
+        "expires": "2023-10-01 17:46:42",
+        "redeemed_date": "2022-01-09 17:46:42"
+      }
+    },
+    {
+      "id": 1004,
+      "firstName": "Teacher",
+      "lastName": "Test 4",
+      "password": "yuliiawork22",
+      "email": "teacher4@testbreakoutedu.com",
+      "role_id": 3,
+      "user_code": {
+        "code": {
+          "id": 10,
+          "code": "010",
+          "isUsed": 1,
+          "bulk_package_id": 0,
+          "valid_for": 365
+        },
+        "id": 10,
+        "expires": "2023-10-01 17:46:42",
+        "redeemed_date": "2022-01-09 17:46:42"
+      }
     }
   ],
   "students": [
@@ -157,14 +237,155 @@
       "password": "yw22",
       "firstName": "ystudent1",
       "lastName": "r"
+    },
+    {
+      "id": 1000001,
+      "username": "student_test_1",
+      "password": "yw22",
+      "firstName": "student",
+      "lastName": "test_1"
+    },
+    {
+      "id": 1000002,
+      "username": "student_test_2",
+      "password": "yw22",
+      "firstName": "student",
+      "lastName": "test_2"
+    },
+    {
+      "id": 1000003,
+      "username": "student_test_3",
+      "password": "yw22",
+      "firstName": "student",
+      "lastName": "test_3"
+    },
+    {
+      "id": 1000004,
+      "username": "student_test_4",
+      "password": "yw22",
+      "firstName": "student",
+      "lastName": "test_4"
+    },
+    {
+      "id": 1000005,
+      "username": "student_test_5",
+      "password": "yw22",
+      "firstName": "student",
+      "lastName": "test_5"
+    },
+    {
+      "id": 1000006,
+      "username": "student_test_6",
+      "password": "yw22",
+      "firstName": "student",
+      "lastName": "test_6"
+    },
+    {
+      "id": 1000007,
+      "username": "student_test_7",
+      "password": "yw22",
+      "firstName": "student",
+      "lastName": "test_7"
+    },
+    {
+      "id": 1000008,
+      "username": "student_test_8",
+      "password": "yw22",
+      "firstName": "student",
+      "lastName": "test_8"
+    },
+    {
+      "id": 1000009,
+      "username": "student_test_9",
+      "password": "yw22",
+      "firstName": "student",
+      "lastName": "test_9"
+    },
+    {
+      "id": 1000010,
+      "username": "student_test_10",
+      "password": "yw22",
+      "firstName": "student",
+      "lastName": "test_10"
+    },
+    {
+      "id": 1000011,
+      "username": "student_test_11",
+      "password": "yw22",
+      "firstName": "student",
+      "lastName": "test_11"
+    },
+    {
+      "id": 1000012,
+      "username": "student_test_12",
+      "password": "yw22",
+      "firstName": "student",
+      "lastName": "test_12"
+    },
+    {
+      "id": 1000013,
+      "username": "student_test_13",
+      "password": "yw22",
+      "firstName": "student",
+      "lastName": "test_13"
+    },
+    {
+      "id": 1000014,
+      "username": "student_test_14",
+      "password": "yw22",
+      "firstName": "student",
+      "lastName": "test_14"
+    },
+    {
+      "id": 1000015,
+      "username": "student_test_15",
+      "password": "yw22",
+      "firstName": "student",
+      "lastName": "test_15"
     }
   ],
   "classes": [
     {
-      "id": 157827,
+      "id":157827,
       "title": "Math trying testing t2dd sdlijasldj",
       "code": "37XJD9",
-      "user_id": 860624
+      "user_id":860624
+    },
+    {
+      "id": 1001,
+      "title": "Class To Edit",
+      "code": "CLASS1",
+      "user_id": 1001
+    },
+    {
+      "id": 1002,
+      "title": "Class to Delete",
+      "code": "CLASS2",
+      "user_id": 1001
+    },
+    {
+      "id": 1003,
+      "title": "Class to Archive",
+      "code": "CLASS3",
+      "user_id": 1001
+    },
+    {
+      "id": 1004,
+      "title": "Empty Class",
+      "code": "CLASS4",
+      "user_id": 1001
+    },
+    {
+      "id": 1005,
+      "title": "Small Class",
+      "code": "CLASS5",
+      "user_id": 1001
+    },
+    {
+      "id": 1006,
+      "title": "Big Class",
+      "code": "CLASS6",
+      "user_id": 1001
     }
   ],
   "student_classes": [
