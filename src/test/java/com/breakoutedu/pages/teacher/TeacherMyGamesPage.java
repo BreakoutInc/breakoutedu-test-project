@@ -1,7 +1,6 @@
 package com.breakoutedu.pages.teacher;
 
 import com.breakoutedu.utility.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -14,7 +13,7 @@ public class TeacherMyGamesPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath = "//a[@href='/create-digital-game']")
+    @FindBy(xpath = "//button[contains (@class,'create-game-tab-btn')]")
     public WebElement createGameBtn;
 
     @FindBy(xpath = "//input[@placeholder='Search Game by Name']")

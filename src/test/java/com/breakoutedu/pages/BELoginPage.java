@@ -93,8 +93,8 @@ public class BELoginPage {
 
     //*******************METHODS********************
     public void teacherLogin(String username, String password ) {
-        this.logInBtn.click();
-        this.teacherBtn.click();
+//        this.logInBtn.click();
+  //      this.teacherBtn.click();
         this.teacherEmailInput.sendKeys(username);
         this.teacherPwdInput.sendKeys(password);
         this.teachSignInBtn.click();

@@ -10,6 +10,9 @@ public class TeacherMyAccountPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+    @FindBy(xpath = "//div[@id='myAccountHead']")
+    public WebElement pageTitleBubble;
+
     @FindBy(xpath = "//input[@id='username'][@placeholder='First Name']")
     public WebElement firstNameInput;
 
@@ -53,6 +56,10 @@ public class TeacherMyAccountPage {
 
     @FindBy(xpath = "//div[contains(@class,'save-pswrd')]//button[@type='submit']")
     public WebElement savePswdBtn;
+
+
+    //Avatar Manager
+
 
 
 

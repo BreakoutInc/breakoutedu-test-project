@@ -12,7 +12,7 @@ public class TeacherMyClassesPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath = "//a[contains(text(), 'Create Class')]")
+    @FindBy(xpath = "//p[contains(text(), 'Create Class')]")
     public WebElement createClassBtn;
 
     @FindBy(xpath = "//button[@data-target='#digitalGame']")

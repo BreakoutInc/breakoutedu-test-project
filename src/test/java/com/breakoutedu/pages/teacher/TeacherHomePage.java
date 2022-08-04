@@ -11,13 +11,16 @@ public class TeacherHomePage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath = "//a[@href='/profile']/div")
+    @FindBy(css = "#full_avatar")
     public WebElement myAccountIcon;
 
-    @FindBy(xpath = "//span[text()=' My Classes']")
+    @FindBy(xpath = "//div[contains (@class,'my-account-btn')]/a")
+    public WebElement myAccountBtn;
+
+    @FindBy(xpath = "//span[contains (text(), ' My Classes')]")
     public WebElement myClassesModule;
 
-    @FindBy(xpath = "//span[text()=' My Games']']")
+    @FindBy(xpath = "//span[contains (text(), ' My Games')]")
     public WebElement myGamesModule;
 
     @FindBy(xpath = "//span[text()='Notifications']")
@@ -25,6 +28,12 @@ public class TeacherHomePage {
 
     @FindBy(xpath = "//span[text()='Shop']")
     public WebElement shopModule;
+
+    @FindBy(xpath = "//p[contains (text(), 'My Classes')]/..//a")
+    public WebElement viewAllClassesBtn;
+
+    @FindBy(xpath = "//p[contains (text(), 'My Games')]/..//a")
+    public WebElement viewAllGamesBtn;
 
     @FindBy(xpath = "//span[text()='Help']")
     public WebElement helpModule;
