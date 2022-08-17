@@ -16,6 +16,12 @@ public class TeacherMyGamesPage {
     @FindBy(xpath = "//button[contains (@class,'create-game-tab-btn')]")
     public WebElement createGameBtn;
 
+    @FindBy(xpath = "//button[contains (text(), 'Details')]")
+    public WebElement gameDetailsBtn;
+
+    @FindBy(xpath = "//*[contains (text(), 'Number of locks')]")
+    public WebElement numberOfLocksTextTitle;
+
     @FindBy(xpath = "//input[@placeholder='Search Game by Name']")
     public WebElement searchGameInput;
 
@@ -58,6 +64,10 @@ public class TeacherMyGamesPage {
     @FindBy(xpath = "//span[contains (text(), 'Delete')]/..")
     public List<WebElement> deleteBtnList;
 
+    //this method searches for a game with specific title and clicks on the desired option button
+    public void clickOnGameActionBtnByTitle(String gameTitle, String actionBtn){
+        //TODO: finish when have an id for the title of the game
+    }
 
 
 }

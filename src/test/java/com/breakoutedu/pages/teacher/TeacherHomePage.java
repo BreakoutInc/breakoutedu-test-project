@@ -35,7 +35,10 @@ public class TeacherHomePage {
     @FindBy(xpath = "//p[contains (text(), 'My Games')]/..//a")
     public WebElement viewAllGamesBtn;
 
-    @FindBy(xpath = "//span[text()='Help']")
+    @FindBy(xpath = "//img[@alt='recommended game image']")
+    public WebElement recommendedGameImage;
+
+    @FindBy(xpath = "//span[text()='Help']/..")
     public WebElement helpModule;
 
     @FindBy(xpath = "//div[@class='verify-badge']")
