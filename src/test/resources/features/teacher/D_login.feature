@@ -7,15 +7,15 @@ Feature: Teacher login
     And clicks Sign In button
     Then verifies logged in successfully
     Examples:
-      |email| password |
-      |yuliia+teacher1@breakoutedu.com|yuliiawork22|
-      |yuliia+teacher2@breakoutedu.com|yuliiawork22|
-      |yuliia+schooladmin@breakoutedu.com|yuliiawork22|
-      |yuliia+schooladmin2@breakoutedu.com|yuliiawork22|
-      |yuliia+districtadmin@breakoutedu.com|yuliiawork22|
-      |yuliia+districtadmin2@breakoutedu.com|yuliiawork22|
+      | email                                 | password     |
+      | yuliia+teacher1@breakoutedu.com       | yuliiawork22 |
+      | yuliia+teacher2@breakoutedu.com       | yuliiawork22 |
+      | yuliia+schooladmin@breakoutedu.com    | yuliiawork22 |
+      | yuliia+schooladmin2@breakoutedu.com   | yuliiawork22 |
+      | yuliia+districtadmin@breakoutedu.com  | yuliiawork22 |
+      | yuliia+districtadmin2@breakoutedu.com | yuliiawork22 |
 
-    @teamcity
+  @teamcity
   Scenario: User tries to login with invalid credentials
     Given user is on Login Page
     When user provides invalid email and password
