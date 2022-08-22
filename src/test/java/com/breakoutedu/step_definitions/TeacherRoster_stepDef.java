@@ -79,4 +79,8 @@ public class TeacherRoster_stepDef {
     @Then("verifies student was removed from the class")
     public void verifiesStudentWasRemovedFromTheClass() {
     }
+
+    @And("clicks on Roster btn")
+    public void clicksOnRosterBtn() {
+    }
 }
