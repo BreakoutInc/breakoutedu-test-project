@@ -15,6 +15,12 @@ public class TeacherMyClassesPage {
     @FindBy(xpath = "//p[contains(text(), 'Create Class')]")
     public WebElement createClassBtn;
 
+    @FindBy(xpath = "//div[@id='swal2-content']//input")
+    public WebElement newClassNameInput;
+
+    @FindBy(xpath = "//button[@class='join-btn']")
+    public WebElement joinClassEmptyClassCard;
+
     @FindBy(xpath = "//button[@data-target='#digitalGame']")
     public WebElement digitalGamesDropdown;
 
