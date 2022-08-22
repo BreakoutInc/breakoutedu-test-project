@@ -3,6 +3,7 @@ Feature: Roaster page actions
   Background:
     Given Teacher is on the Home Page
     When teacher clicks on My Games
+    And clicks on Roster btn
 
 
   Scenario: Teacher can sort students by name
