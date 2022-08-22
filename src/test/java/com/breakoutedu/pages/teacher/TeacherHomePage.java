@@ -17,7 +17,7 @@ public class TeacherHomePage {
     @FindBy(xpath = "//div[contains (@class,'my-account-btn')]/a")
     public WebElement myAccountBtn;
 
-    @FindBy(xpath = "//span[contains (text(), ' My Classes')]")
+    @FindBy(xpath = "//*[@id='sidebarDiv']/div[2]/div[1]/div[4]/div[4]/div/img")  //TODO: swipe for ID when added
     public WebElement myClassesModule;
 
     @FindBy(xpath = "//span[contains (text(), ' My Games')]")
@@ -31,6 +31,9 @@ public class TeacherHomePage {
 
     @FindBy(xpath = "//p[contains (text(), 'My Classes')]/..//a")
     public WebElement viewAllClassesBtn;
+
+    @FindBy(xpath="N?A?NA?NA?NA") // TODO: when id added - complete the test
+    public WebElement createGameBtn;
 
     @FindBy(xpath = "//p[contains (text(), 'My Games')]/..//a")
     public WebElement viewAllGamesBtn;
