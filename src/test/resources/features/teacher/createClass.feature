@@ -8,11 +8,11 @@ Feature: Teacher create class feature
     And provides class title and clicks Save
     Then verifies class details page is displayed
 
-    Scenario: Teacher create class from My Classes - Create Class btn
-      When teacher clicks on My Classes
-      And clicks on create class btn
-      And provides class title and clicks Save
-      Then verifies class was created successfully
+  Scenario: Teacher create class from My Classes - Create Class btn
+    When teacher clicks on My Classes
+    And clicks on create class btn
+    And provides class title and clicks Save
+    Then verifies class was created successfully
 
   Scenario: Teacher create class from My Classes - empty class card
     When teacher clicks on My Classes
